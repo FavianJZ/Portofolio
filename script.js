@@ -130,8 +130,8 @@ function init3DBackground() {
     mouse = new THREE.Vector2();
     mouseWorld = new THREE.Vector3();
 
-    const planeGeometry = new THREE.PlaneGeometry(400, 400, 50, 50);
-    const material = new THREE.PointsMaterial({ color: 0x0077ff, size: 2 });
+    const planeGeometry = new THREE.PlaneGeometry(400, 400, 70, 50);
+    const material = new THREE.PointsMaterial({ color: 0x00FF77, size: 2 });
     plane = new THREE.Points(planeGeometry, material);
     plane.rotation.x = -Math.PI / 4;
     scene.add(plane);

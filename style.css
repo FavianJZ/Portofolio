@@ -63,7 +63,7 @@ section {
 .navbar .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #E040FB;
+    color: #40fb9d;
     text-decoration: none;
 }
 
@@ -88,7 +88,7 @@ section {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #E040FB;
+    background-color: #40fb9d;
     transition: width 0.3s;
 }
 
@@ -106,7 +106,7 @@ section {
 }
 
 .navbar ul li a:hover {
-    color: #E040FB;
+    color: #40fb9d;
 }
 
 #hero {
@@ -128,7 +128,7 @@ section {
     height: 180px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid #E040FB;
+    border: 4px solid #40fb9d;
     margin-bottom: 2rem;
     box-shadow: 0 0 30px rgba(224, 64, 251, 0.5);
     transition: transform 0.3s ease;
@@ -150,14 +150,14 @@ section {
 }
 
 .typing-text {
-    color: #E040FB;
-    border-right: 2px solid #E040FB;
+    color: #40fb9d;
+    border-right: 2px solid #40fb9d;
     animation: blink 0.7s infinite;
 }
 
 @keyframes blink {
     from, to { border-color: transparent; }
-    50% { border-color: #E040FB; }
+    50% { border-color: #40fb9d; }
 }
 
 .social-links a {
@@ -168,7 +168,7 @@ section {
 }
 
 .social-links a:hover {
-    color: #E040FB;
+    color: #40fb9d;
     transform: translateY(-5px);
 }
 
@@ -184,8 +184,8 @@ section {
 }
 
 .btn-resume {
-    color: #E040FB;
-    border: 1px solid #E040FB;
+    color: #40fb9d;
+    border: 1px solid #40fb9d;
     padding: 0.75rem 1.5rem;
     border-radius: 4px;
     text-decoration: none;
@@ -213,7 +213,7 @@ section {
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background: #E040FB;
+    background: #40fb9d;
     border-radius: 2px;
 }
 
@@ -238,7 +238,7 @@ section {
     padding: 2rem;
     border-radius: 8px;
     margin-bottom: 2rem;
-    border-left: 5px solid #E040FB;
+    border-left: 5px solid #40fb9d;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -248,7 +248,7 @@ section {
 }
 
 .experience-item h3 {
-    color: #E040FB;
+    color: #40fb9d;
     margin-bottom: 0.5rem;
 }
 
@@ -281,7 +281,7 @@ section {
 
 .skill-item i {
     font-size: 3rem;
-    color: #E040FB;
+    color: #40fb9d;
     margin-bottom: 1rem;
 }
 
@@ -320,7 +320,7 @@ section {
 }
 
 .project-content h3 {
-    color: #E040FB;
+    color: #40fb9d;
     margin-bottom: 1rem;
 }
 
@@ -336,8 +336,8 @@ section {
 }
 
 .project-buttons a {
-    color: #E040FB;
-    border: 1px solid #E040FB;
+    color: #40fb9d;
+    border: 1px solid #40fb9d;
     padding: 0.6rem 1.2rem;
     border-radius: 4px;
     text-decoration: none;
@@ -350,7 +350,7 @@ section {
 }
 
 .project-buttons .btn-primary {
-     background-color: #E040FB;
+     background-color: #40fb9d;
      color: #0a192f;
 }
 
@@ -420,7 +420,7 @@ section {
 }
 
 .contact-item i {
-    color: #E040FB;
+    color: #40fb9d;
     font-size: 1.5rem;
 }
 
@@ -431,7 +431,7 @@ section {
 }
 
 .contact-item a:hover {
-    color: #E040FB;
+    color: #40fb9d;
 }
 
 footer {
@@ -453,7 +453,7 @@ footer a {
 }
 
 footer a:hover {
-    color: #E040FB;
+    color: #40fb88;
 }
 
 .fade-in {
@@ -489,7 +489,7 @@ footer a:hover {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
-    background-color: #E040FB;
+    background-color: #40fb9d;
     color: #0a192f;
     width: 50px;
     height: 50px;
