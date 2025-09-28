@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favian Junnanda Zahri | Portofolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="bg"></canvas>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="#hero" class="logo">Portofolio</a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul id="nav-links">
+                <li><a href="#about">Tentang Saya</a></li>
+                <li><a href="#experience">Pengalaman</a></li>
+                <li><a href="#skills">Keahlian</a></li>
+                <li><a href="#projects">Proyek</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <div class="container hero-content ">
+            <img src="PhotoFormal.jpg" alt="Foto Favian Junnanda Zahri" class="hero-photo fade-in">
+            
+            <p style="font-size: 1.2rem; color: #64ffda;" class="fade-in">Halo, perkenalkan! Nama saya</p>
+            <h1 class="fade-in">Favian Junnanda Zahri</h1>
+            <p class="fade-in">
+                Saya seorang <span id="typing-effect" class="typing-text"></span>
+            </p>
+            <div class="social-links fade-in">
+                <a href="http://www.linkedin.com/in/favian-junanda-zahri" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/FavianJZ" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="mailto:favian.zahri@binus.ac.id" target="_blank" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+            <div class="resume-section fade-in">
+                <h3>Resume Saya</h3>
+                <a href="CV Favian Junnanda Zahri.pdf" download class="btn-resume" aria-label="Download CV"><i class="fas fa-download"></i> Unduh CV</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="slide-in-right">
+        <div class="container">
+            <h2 class="section-title fade-in">Tentang Saya</h2>
+            <p class="fade-in">
+                Mahasiswa Ilmu Komputer semester lima di Universitas Bina Nusantara dengan pengalaman organisasi aktif dan keahlian pemrograman dalam Python dan C++. Cepat beradaptasi dengan alat dan kerangka kerja baru, dengan dorongan kuat untuk memperluas pengetahuan teknis dan keterampilan memecahkan masalah. Memiliki ketertarikan di bidang pengembangan teknologi pendidikan, desain UI/UX, dan manajemen acara.
+            </p>
+        </div>
+    </section>
+
+    <section id="experience" class="slide-in-left">
+        <div class="container">
+            <h2 class="section-title fade-in">Pengalaman</h2>
+            <div class="experience-item fade-in">
+                <h3>Anggota Pengurus & Aktivis</h3>
+                <p><strong>UKM Binus Bola Voli</strong></p>
+                <p><em>Agu 2024 - Sep 2024</em></p>
+                <ul>
+                    <li>Menjaga booth saat event kampus membantu pendaftaran</li>
+                    <li>Menjadi wasit dalam pertandingan bola voli</li>
+                    <li>Mengkoordinasi peserta dan jalannya acara</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="slide-in-right">
+        <div class="container">
+            <h2 class="section-title fade-in">Keahlian</h2>
+            <div class="skills-grid fade-in">
+                <div class="skill-item">
+                    <i class="fab fa-python"></i>
+                    <p>Python</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-code"></i>
+                    <p>C++</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-html5"></i>
+                    <p>HTML</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-css3-alt"></i>
+                    <p>CSS</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-figma"></i>
+                    <p>Figma</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-users"></i>
+                    <p>Manajemen Acara</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-comments"></i>
+                    <p>Komunikasi</p>
+                </div>
+                 <div class="skill-item">
+                    <i class="fas fa-sitemap"></i>
+                    <p>Kepemimpinan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="slide-in-left">
+        <div class="container">
+            <h2 class="section-title fade-in">Proyek Saya</h2>
+            <div class="projects-grid fade-in">
+               
+                <div class="project-card">
+                    <div class="project-image-container">
+                        <img src="HCI Project 1.png" alt="Proyek SafeKota - Halaman Utama" class="project-image active">
+                        <img src="HCI Project 2.png" alt="Proyek SafeKota - Halaman Peta" class="project-image">
+                        <img src="HCI Project 3.png" alt="Proyek SafeKota - Halaman Peta" class="project-image">
+                        <img src="HCI Project 4.png" alt="Proyek SafeKota - Halaman Peta" class="project-image">
+                        <img src="HCI Project 5.png" alt="Proyek SafeKota - Halaman Peta" class="project-image">
+                        <img src="HCI Project 6.png" alt="Proyek SafeKota - Halaman Peta" class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <h3>SafeKota - Aplikasi Pelaporan Warga</h3>
+                        <p>
+                            Aplikasi web untuk meningkatkan partisipasi masyarakat dalam menciptakan kota aman dan berkelanjutan melalui fitur pelaporan, peta interaktif, dan edukasi SDG 11. (Placeholder untuk gambar kedua)
+                        </p>
+                        <div class="project-buttons">
+                            <a href="https://github.com/FavianJZ/HCI" target="_blank">Lihat Kode</a>
+                            <a href="https://favianjz.github.io/HCI/" target="_blank" class="btn-primary">Buka Website</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image-container">
+                        <img src="ZeroWaste 1.png" alt="Proyek ZeroWaste - Halaman Utama" class="project-image active">
+                        <img src="ZeroWaste 2.png" alt="Proyek ZeroWaste - Halaman Produk" class="project-image">
+                        <img src="ZeroWaste 3.png" alt="Proyek ZeroWaste - Halaman Produk" class="project-image">
+                        <img src="ZeroWaste 4.png" alt="Proyek ZeroWaste - Halaman Produk" class="project-image">
+                        <img src="ZeroWaste 5.png" alt="Proyek ZeroWaste - Halaman Produk" class="project-image">
+                        <img src="ZeroWaste 6.png" alt="Proyek ZeroWaste - Halaman Produk" class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <h3>ZeroWaste – Save Food, Save Money</h3>
+                        <p>
+                            Proyek web yang menghubungkan restoran dengan makanan berlebih kepada konsumen dengan harga diskon, mendukung keberlanjutan lingkungan dan ekonomi. (Placeholder untuk gambar kedua)
+                        </p>
+                        <div class="project-buttons">
+                            <a href="https://github.com/FavianJZ/WebsiteKelompokSE" target="_blank">Lihat Kode</a>
+                            <a href="https://favianjz.github.io/WebsiteKelompokSE/profile.html" target="_blank" class="btn-primary">Buka Website</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                     <div class="project-image-container">
+                        <img src="Machine Learning 1.png" alt="Proyek Machine Learning - Input Data" class="project-image active">
+                        <img src="Machine Learning 2.png" alt="Proyek Machine Learning - Hasil Prediksi" class="project-image">
+                        <img src="Machine Learning 3.png" alt="Proyek Machine Learning - Hasil Prediksi" class="project-image">
+                     </div>
+                    <div class="project-content">
+                        <h3>Deteksi Skizofrenia (ML)</h3>
+                        <p>
+                            Aplikasi berbasis Machine Learning untuk membantu deteksi potensi skizofrenia berdasarkan data input. Ini adalah alat bantu, bukan pengganti diagnosis medis. (Placeholder untuk gambar kedua)
+                        </p>
+                        <div class="project-buttons">
+                            <a href="https://github.com/FavianJZ/ProjectMLSkizo" target="_blank">Lihat Kode</a>
+                            <a href="https://projectmlskizo.streamlit.app/" target="_blank" class="btn-primary">Buka Website</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image-container">
+                        <img src="Absolute Cinema 1.png" alt="Proyek Absolute Cinema" class="project-image active">
+                        <img src="Absolute Cinema 2.png" alt="Proyek Absolute Cinema" class="project-image">
+                        <img src="Absolute Cinema 3.png" alt="Proyek Absolute Cinema" class="project-image">
+                        <img src="Absolute Cinema 4.png" alt="Proyek Absolute Cinema" class="project-image">
+                        <img src="Absolute Cinema 5.png" alt="Proyek Absolute Cinema" class="project-image">
+                        <img src="Absolute Cinema 6.png" alt="Proyek Absolute Cinema" class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <h3>Absolute Cinema</h3>
+                        <p>
+                            Website sinema yang memungkinkan pengguna untuk melihat film yang sedang tayang, promo, dan informasi bioskop. Dibuat untuk menyediakan pengalaman seperti situs pemesanan tiket terkemuka.
+                        </p>
+                        <div class="project-buttons">
+                            <a href="https://github.com/FavianJZ/AbsoluteCinema" target="_blank">Lihat Kode</a>
+                            <a href="https://favianjz.github.io/AbsoluteCinema/index.html" target="_blank" class="btn-primary">Buka Website</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                   <div class="project-image-container">
+                        <img src="AI Project 1.jpg" alt="Tampilan Proyek AI 1" class="project-image active">
+                        <img src="AI Project 2.jpg" alt="Tampilan Proyek AI 2" class="project-image">
+                        <img src="AI Project 3.jpg" alt="Tampilan Proyek AI 2" class="project-image">
+                        <img src="AI Project 4.jpg" alt="Tampilan Proyek AI 2" class="project-image">
+                        <img src="AI Project 5.jpg" alt="Tampilan Proyek AI 2" class="project-image">
+                </div>
+                <div class="project-content">
+                        <h3>Absance Alert - Aplikasi Berbasis AI</h3>
+                            <p>
+                                Mengembangkan sistem berbasis AI untuk mendeteksi jumlah siswa di dalam kelas secara otomatis. Menggunakan computer vision untuk mengenali objek di dalam kelas dan memberikan data analisis kehadiran.
+                                Menggunakan computer vision untuk mengenali objek di dalam kelas dan memberikan data analisis kehadiran.
+                                Memanfaatkan teknologi machine learning untuk meningkatkan akurasi deteksi.
+                            </p>
+                            <div class="project-buttons">
+                            <a href="https://github.com/FavianJZ/ABSENCE-ALERT" target="_blank">Lihat Kode</a>
+                            <a href="https://binusianorg-my.sharepoint.com/personal/favian_zahri_binus_ac_id/_layouts/15/guestaccess.aspx?share=Et8rkzc32EFFtrd5WG6lBRUBYfS9tWHInUzztdFKDK5COQ&e=hNgJWv" target="_blank" class="btn-primary">Baca selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image-container">
+                        <img src="Binus Rent 1.png" alt="Proyek Binus Rent" class="project-image active">
+                        <img src="Binus Rent 2.png" alt="Proyek Binus Rent" class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <h3>BinusRent - Aplikasi Penyewaan</h3>
+                        <p>
+                           Berkontribusi dalam desain antarmuka (UI) dan pengalaman pengguna (UX) menggunakan Figma, dengan fokus pada pembuatan halaman login dan memberikan ide desain untuk halaman utama.
+                        </p>
+                        <div class="project-buttons">
+                            <a href="https://www.figma.com/design/9i3K4P45VEtoErVUq85U3p/Cosplay?node-id=0-1&t=bgTxDCTg9d1ke05i-1" target="_blank" class="btn-primary">Lihat Desain</a>
+                        </div>
+                    </div>
+                </div>                
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="slide-in-right">
+        <div class="container">
+            <h2 class="section-title fade-in">Hubungi Saya</h2>
+            <div class="contact-content fade-in">
+                <p class="contact-intro">
+                    Saya selalu terbuka untuk diskusi tentang proyek baru, peluang kreatif, atau bahkan hanya untuk ngobrol tentang teknologi. Jangan ragu untuk menghubungi saya!
+                </p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:favian.zahri@binus.ac.id">favian.zahri@binus.ac.id</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="https://wa.me/6281358614202" target="_blank">+62 813-5861-4202</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Jakarta Timur, Indonesia</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-socials">
+                <a href="http://www.linkedin.com/in/favian-junanda-zahri" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/FavianJZ" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="mailto:favian.zahri@binus.ac.id" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p>&copy; 2025 Favian Junnanda Zahri. Dibuat dengan penuh semangat.</p>
+        </div>
+    </footer>
+
+    <a href="#hero" class="back-to-top" aria-label="Kembali ke atas"><i class="fas fa-arrow-up"></i></a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
