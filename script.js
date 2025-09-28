@@ -131,7 +131,7 @@ function init3DBackground() {
     mouseWorld = new THREE.Vector3();
 
     const planeGeometry = new THREE.PlaneGeometry(400, 400, 50, 50);
-    const material = new THREE.PointsMaterial({ color: 0x64ffda, size: 2 });
+    const material = new THREE.PointsMaterial({ color: 0x0077ff, size: 2 });
     plane = new THREE.Points(planeGeometry, material);
     plane.rotation.x = -Math.PI / 4;
     scene.add(plane);
@@ -143,6 +143,13 @@ function init3DBackground() {
     document.addEventListener('mousemove', (event) => {
         mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
         mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    });
+
+    document.addEventListener('touchmove', (event) => {
+        if (event.touches.length > 0) {
+            mouse.x = (event.touches[0].clientX / window.innerWidth) * 2 - 1;
+            mouse.y = -(event.touches[0].clientY / window.innerHeight) * 2 + 1;
+        }
     });
 
     let frame = 0;
