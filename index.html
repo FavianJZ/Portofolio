@@ -1,220 +1,397 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portofolio Resmi Favian Junnanda Zahri - Mahasiswa Ilmu Komputer Universitas Bina Nusantara, Pengembang Web, AI/ML & UI/UX Designer.">
-    <meta name="keywords" content="Favian Junnanda Zahri, Portofolio, Web Developer, Machine Learning, UI/UX, Computer Science, BINUS">
+    <meta name="description"
+        content="Portofolio Resmi Favian Junnanda Zahri - Space Odyssey Interactive Portfolio. Mahasiswa Ilmu Komputer, Web Developer, AI/ML & UI/UX Designer.">
+    <meta name="keywords"
+        content="Favian Junnanda Zahri, Portofolio, Web Developer, Machine Learning, UI/UX, Computer Science, BINUS, Three.js, 3D">
     <meta name="author" content="Favian Junnanda Zahri">
-    <title>Favian Junnanda Zahri | Portofolio</title>
-    
+    <title>Favian Junnanda Zahri | Space Odyssey Portfolio</title>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    
+
+    <!-- Three.js -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+        }
+    }
+    </script>
+
     <!-- Custom CSS & Favicon -->
     <link rel="icon" type="image/jpeg" href="assets/images/profile/PhotoFormal.jpg">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
-    <canvas id="bg"></canvas>
 
-    <nav class="navbar">
-        <div class="container">
-            <a href="#hero" class="logo">Favian Junnanda Zahri</a>
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul id="nav-links">
-                <li><a href="#about">Tentang Saya</a></li>
-                <li><a href="#experience">Pengalaman</a></li>
-                <li><a href="#skills">Keahlian</a></li>
-                <li><a href="#projects">Proyek</a></li>
-                <li><a href="#contact">Kontak</a></li>
-            </ul>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loader">
+            <div class="loader-ring"></div>
+            <p class="loader-text">Loading Space Odyssey...</p>
+            <div class="loader-bar">
+                <div class="loader-fill" id="loader-fill"></div>
+            </div>
+            <p class="loader-percent" id="loader-percent">0%</p>
         </div>
+    </div>
+
+    <!-- Full-page 3D Canvas Background -->
+    <canvas id="three-canvas"></canvas>
+
+    <!-- Space HUD Navigation (Matching Reference UI) -->
+    <nav class="space-nav-hud" id="space-nav-hud" aria-label="Space Odyssey Navigation">
+        <div class="nav-nodes-column">
+            <!-- 1. Solar System (Hero/Orbit) -->
+            <a href="#hero" class="nav-node active" data-tooltip="Orbit System" data-label="ORBIT">
+                <div class="node-icon">
+                    <svg viewBox="0 0 48 48" class="hud-svg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="24" cy="24" r="3.5" fill="currentColor" fill-opacity="0.25" />
+                        <circle cx="24" cy="24" r="1.5" fill="currentColor" />
+                        <circle cx="24" cy="24" r="7" stroke-dasharray="2 3" opacity="0.6" />
+                        <circle cx="19" cy="19.5" r="1.3" fill="currentColor" />
+                        <circle cx="24" cy="24" r="12" opacity="0.75" />
+                        <circle cx="34" cy="20" r="1.8" fill="currentColor" />
+                        <circle cx="24" cy="24" r="16.5" stroke-dasharray="2 3" opacity="0.55" />
+                        <circle cx="12.5" cy="30" r="1.5" fill="currentColor" />
+                        <circle cx="24" cy="24" r="20.5" opacity="0.45" />
+                        <circle cx="38" cy="34" r="1.4" fill="currentColor" />
+                        <circle cx="10" cy="15" r="1.3" fill="currentColor" />
+                    </svg>
+                </div>
+            </a>
+
+            <!-- 2. Astronaut (About) -->
+            <a href="#about" class="nav-node" data-tooltip="Astronaut Profile" data-label="ASTRONAUT">
+                <div class="node-icon">
+                    <svg viewBox="0 0 48 48" class="hud-svg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="13" y="10" width="22" height="18" rx="9" />
+                        <rect x="16" y="13" width="16" height="12" rx="5" fill="currentColor" fill-opacity="0.15" />
+                        <path d="M19 16 A 5 4 0 0 1 29 16" stroke-width="1.2" opacity="0.8" />
+                        <path d="M17 29 C17 31 31 31 31 29" />
+                        <path d="M14 31 L34 31" />
+                        <path d="M13 32 L9 39 C8.5 40 9 42 10.5 42 L37.5 42 C39 42 39.5 40 39 39 L35 32" />
+                        <rect x="19" y="34" width="10" height="7" rx="1.5" />
+                        <line x1="22" y1="37" x2="26" y2="37" stroke-width="1.2" />
+                        <line x1="22" y1="39" x2="24" y2="39" stroke-width="1.2" />
+                        <rect x="33" y="34" width="4" height="4" rx="0.5" stroke-width="1.2" />
+                    </svg>
+                </div>
+            </a>
+
+            <!-- 3. UFO (Experience) -->
+            <a href="#experience" class="nav-node" data-tooltip="Expeditions" data-label="UFO BASE">
+                <div class="node-icon">
+                    <svg viewBox="0 0 48 48" class="hud-svg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 20 C18 14 30 14 30 20 Z" />
+                        <circle cx="21" cy="18" r="1.2" fill="currentColor" />
+                        <circle cx="27" cy="18" r="1.2" fill="currentColor" />
+                        <ellipse cx="24" cy="23" rx="17" ry="4.5" fill="currentColor" fill-opacity="0.12" />
+                        <path d="M7 23 C7 27 41 27 41 23" />
+                        <circle cx="12" cy="24" r="0.9" fill="currentColor" />
+                        <circle cx="18" cy="25" r="0.9" fill="currentColor" />
+                        <circle cx="24" cy="25.5" r="0.9" fill="currentColor" />
+                        <circle cx="30" cy="25" r="0.9" fill="currentColor" />
+                        <circle cx="36" cy="24" r="0.9" fill="currentColor" />
+                        <path d="M17 26.5 L20 30 L28 30 L31 26.5" />
+                        <path d="M16 29 L12 36 L15 36" />
+                        <path d="M32 29 L36 36 L33 36" />
+                        <path d="M24 30 L24 37" />
+                        <path d="M8 17 L9 15 L10 17 L9 19 Z" fill="currentColor" stroke="none" />
+                        <path d="M38 17 L39 15 L40 17 L39 19 Z" fill="currentColor" stroke="none" />
+                    </svg>
+                </div>
+            </a>
+
+            <!-- 4. Energy Core (Skills) -->
+            <a href="#skills" class="nav-node" data-tooltip="Core Systems" data-label="SYSTEMS">
+                <div class="node-icon">
+                    <svg viewBox="0 0 48 48" class="hud-svg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="24" cy="24" r="17" stroke-dasharray="6 3 2 3" opacity="0.6" />
+                        <polygon points="24,10 35,16.5 35,29.5 24,36 13,29.5 13,16.5" />
+                        <circle cx="24" cy="10" r="1.3" fill="currentColor" />
+                        <circle cx="35" cy="16.5" r="1.3" fill="currentColor" />
+                        <circle cx="35" cy="29.5" r="1.3" fill="currentColor" />
+                        <circle cx="24" cy="36" r="1.3" fill="currentColor" />
+                        <circle cx="13" cy="29.5" r="1.3" fill="currentColor" />
+                        <circle cx="13" cy="16.5" r="1.3" fill="currentColor" />
+                        <circle cx="24" cy="24" r="4.5" fill="currentColor" fill-opacity="0.25" />
+                        <path d="M25 18 L21 24 L27 24 L23 30" stroke-width="1.8" />
+                    </svg>
+                </div>
+            </a>
+
+            <!-- 5. Rocket Ship (Projects - Exactly like Screenshot 3!) -->
+            <a href="#projects" class="nav-node" data-tooltip="Rocket Ship Projects" data-label="ROCKET SHIP">
+                <div class="node-icon">
+                    <svg viewBox="0 0 48 48" class="hud-svg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                        <!-- Rocket Body angled 42 deg to top-right -->
+                        <path d="M38 10 C38 10 32 12 25 19 C20 24 17 29 17 31 L23 37 C25 37 30 34 35 29 C42 22 44 16 44 16 C44 16 41 13 38 10 Z" fill="currentColor" fill-opacity="0.15" />
+                        <path d="M33 15 C35 18 39 19 39 19" stroke-width="1.2" />
+                        <circle cx="29" cy="23" r="3.2" />
+                        <circle cx="29" cy="23" r="1.5" fill="currentColor" />
+                        <path d="M18 27 L11 28 L14 36 L19 33 Z" />
+                        <path d="M27 18 L28 11 L36 14 L33 19 Z" />
+                        <path d="M17 31 L15 33 L21 39 L23 37" />
+                        <path d="M16 35 L9 42 C12 39 12 37 13 35 Z" fill="currentColor" fill-opacity="0.3" />
+                        <path d="M18 37 C15 41 8 46 8 46 C8 46 13 39 17 36" stroke-width="1.4" />
+                        <path d="M19 35 C17 38 11 43 11 43" stroke-dasharray="1 2" opacity="0.7" />
+                    </svg>
+                </div>
+            </a>
+
+            <!-- 6. Ground Satellite (Contact) -->
+            <a href="#contact" class="nav-node" data-tooltip="Comms & Contact" data-label="GROUND DISH">
+                <div class="node-icon">
+                    <svg viewBox="0 0 48 48" class="hud-svg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M13 39 L25 39" stroke-width="2" />
+                        <path d="M19 39 L19 35" stroke-width="1.8" />
+                        <path d="M15 35 L19 31 L23 35 Z" />
+                        <circle cx="19" cy="31" r="1.5" fill="currentColor" />
+                        <path d="M13 32 C12 25 21 16 28 15 C30 15 32 17 31 20 C27 27 18 36 15 36 C13.5 36 13 34 13 32 Z" fill="currentColor" fill-opacity="0.15" />
+                        <path d="M13 32 C17 21 26 15 30 18" stroke-width="1.4" opacity="0.6" />
+                        <line x1="21" y1="23" x2="27" y2="17" stroke-width="2" />
+                        <circle cx="28" cy="16" r="1.5" fill="currentColor" />
+                        <path d="M29 11 A 8 8 0 0 1 36 18" stroke-width="1.4" />
+                        <path d="M33 7 A 14 14 0 0 1 42 16" stroke-width="1.4" opacity="0.8" />
+                        <path d="M37 3 A 20 20 0 0 1 47 13" stroke-width="1.2" opacity="0.5" stroke-dasharray="2 2" />
+                    </svg>
+                </div>
+            </a>
+        </div>
+
     </nav>
 
-    <section id="hero">
-        <div class="container hero-content">
-            <img src="assets/images/profile/PhotoFormal.jpg" alt="Foto Favian Junnanda Zahri" class="hero-photo fade-in">
-            
-            <p class="hero-greeting fade-in">Halo, perkenalkan! Nama saya</p>
-            <h1 class="fade-in">Favian Junnanda Zahri</h1>
-            <p class="fade-in">
-                Saya seorang <span id="typing-effect" class="typing-text"></span>
-            </p>
-            <div class="social-links fade-in">
-                <a href="http://www.linkedin.com/in/favian-junanda-zahri" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/FavianJZ" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="mailto:favian.zahri@binus.ac.id" target="_blank" rel="noopener noreferrer" aria-label="Email"><i class="fas fa-envelope"></i></a>
-            </div>
-            <div class="resume-section fade-in">
-                <h3>Resume Saya</h3>
-                <a href="assets/docs/CV-BN125078680.pdf" download class="btn-resume" aria-label="Download CV"><i class="fas fa-download"></i> Unduh CV</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="slide-in-right">
-        <div class="container">
-            <h2 class="section-title">Tentang Saya</h2>
-            <div class="about-content fade-in">
-                <p>
-                    Mahasiswa Ilmu Komputer di Universitas Bina Nusantara dengan pengalaman organisasi aktif dan keahlian pemrograman dalam Python dan C++. Cepat beradaptasi dengan alat dan kerangka kerja baru, dengan dorongan kuat untuk memperluas pengetahuan teknis dan keterampilan memecahkan masalah. Memiliki ketertarikan di bidang pengembangan teknologi pendidikan, kecerdasan buatan (AI/ML), desain UI/UX, dan manajemen acara.
-                </p>
-            </div>
-        </div>
-    </section>    
-
-    <section id="experience" class="slide-in-left">
-        <div class="container">
-            <h2 class="section-title fade-in">Pengalaman</h2>
-            
-            <div class="experience-item fade-in">
-                <h3>Frontend / Web Developer Intern</h3>
-                <p><strong>Universitas Bina Nusantara (BINUS)</strong></p>
-                <p><em>Proyek Magang</em></p>
-                <ul>
-                    <li>Mengembangkan <strong>Space Academy App</strong>: aplikasi web gamifikasi interaktif 3D berbasis React 19, TypeScript, Three.js (R3F), Tailwind CSS, dan Supabase untuk pengalaman belajar software engineering yang inovatif.</li>
-                    <li>Membangun <strong>Sistem Monitoring Perlombaan Mahasiswa (SiMonLomba)</strong>: platform web sentralisasi pendaftaran lomba, timeline kompetisi, verifikasi tim, serta ekspor arsip prestasi ke format Excel dan PDF (status: <em>On-Going</em>).</li>
-                    <li>Mengimplementasikan arsitektur frontend modular, UI responsif, state management modern (Zustand), serta integrasi database cloud real-time.</li>
-                </ul>
-            </div>
-
-            <div class="experience-item fade-in">
-                <h3>Anggota Pengurus & Aktivis</h3>
-                <p><strong>UKM Binus Bola Voli</strong></p>
-                <p><em>Agu 2024 - Sep 2024</em></p>
-                <ul>
-                    <li>Menjaga booth saat event kampus membantu proses pendaftaran anggota baru</li>
-                    <li>Menjadi wasit dalam pertandingan bola voli antar mahasiswa</li>
-                    <li>Mengkoordinasi peserta dan memastikan kelancaran jalannya acara</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="slide-in-right">
-        <div class="container">
-            <h2 class="section-title fade-in">Keahlian</h2>
-            <div class="skills-grid fade-in">
-                <div class="skill-item">
-                    <i class="fab fa-react"></i>
-                    <p>React</p>
+    <!-- ====== ZONE 1: HERO ====== -->
+    <section id="hero" class="zone" data-altitude="🌍 Surface">
+        <div class="zone-content">
+            <div class="hero-container">
+                <div class="hero-photo-frame">
+                    <img src="assets/images/profile/PhotoFormal.jpg" alt="Favian Junnanda Zahri" class="hero-photo">
+                    <div class="photo-ring"></div>
+                    <div class="photo-ring ring-2"></div>
                 </div>
-                <div class="skill-item">
-                    <i class="fas fa-file-code"></i>
-                    <p>TypeScript</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-js"></i>
-                    <p>JavaScript</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-cube"></i>
-                    <p>Three.js</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-css3-alt"></i>
-                    <p>Tailwind CSS</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-database"></i>
-                    <p>Supabase</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-python"></i>
-                    <p>Python</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-code"></i>
-                    <p>C++</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-html5"></i>
-                    <p>HTML5</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-figma"></i>
-                    <p>Figma</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-users"></i>
-                    <p>Manajemen Acara</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-comments"></i>
-                    <p>Komunikasi</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="slide-in-left">
-        <div class="container">
-            <h2 class="section-title fade-in">Proyek Saya</h2>
-            <!-- PINNED MAIN PROJECT: Space Academy App -->
-            <div class="pinned-project-card fade-in">
-                <div class="project-image-container">
-                    <img src="assets/images/projects/Space Academy 1.png" alt="Space Academy - Landing Page & Karakter" class="project-image active">
-                    <img src="assets/images/projects/Space Academy 2.png" alt="Space Academy - Intro Cinematic Gameplay" class="project-image">
-                    <img src="assets/images/projects/Space Academy 3.png" alt="Space Academy - 3D Main Hub & Orbit Planet" class="project-image">
-                    <img src="assets/images/projects/Space Academy 4.png" alt="Space Academy - Gameplay Misi Coding" class="project-image">
-                    <img src="assets/images/projects/Space Academy 5.png" alt="Space Academy - Online Party Lobby & Co-op Boss" class="project-image">
-                </div>
-                <div class="project-content">
-                    <div class="project-badges">
-                        <span class="badge-pinned"><i class="fas fa-thumbtack"></i> Pinned Main Project</span>
-                        <span class="badge-internship"><i class="fas fa-briefcase"></i> Proyek Magang BINUS</span>
-                        <span class="badge-online"><span class="pulse-dot"></span> Live on Vercel • Supabase Online</span>
+                <div class="hero-text">
+                    <p class="hero-greeting"><span class="transmit-text">// TRANSMISSION INCOMING...</span></p>
+                    <h1 class="hero-name glitch-text" data-text="Favian Junnanda Zahri">Favian Junnanda Zahri</h1>
+                    <div class="hero-role">
+                        <span class="role-prefix">&gt;&gt;</span>
+                        <span id="typing-role" class="typing-cursor"></span>
                     </div>
-                    <h3>Space Academy App</h3>
-                    <p class="project-subtitle">3D Gamified Learning & Real-time Co-Op Multiplayer (Stage 6)</p>
-                    <div class="project-tags">
-                        <span class="tech-tag">React 19</span>
-                        <span class="tech-tag">TypeScript</span>
-                        <span class="tech-tag">Three.js</span>
-                        <span class="tech-tag">R3F / Drei</span>
-                        <span class="tech-tag">Tailwind CSS</span>
-                        <span class="tech-tag">Zustand</span>
-                        <span class="tech-tag">Supabase Realtime</span>
-                        <span class="tech-tag">Vercel Live</span>
-                    </div>
-                    <p>
-                        Aplikasi web gamifikasi interaktif 3D bertema eksplorasi antariksa untuk memperkenalkan software engineering melalui pengalaman belajar berbasis game yang imersif. Tidak hanya menyediakan petualangan solo di 5 stage awal, proyek ini menghadirkan pengalaman <strong>Fully Online Co-Op Multiplayer</strong> yang canggih.
-                    </p>
-                    <ul class="project-feature-list">
-                        <li class="feature-highlight-coop"><i class="fas fa-users-cog"></i> <span><strong>Fully Online Gameplay & Co-Op Multiplayer (Stage 6 - Final Boss Bug Hunt)</strong>: Fitur multiplayer online penuh di mana pemain dapat membuat atau bergabung ke party room melalui <em>Online Party Lobby</em>, lalu bertarung bersama secara <em>live</em> melawan Boss Bug dengan sinkronisasi damage, serangan tim, dan kemenangan secara real-time via <strong>Supabase Realtime WebSocket Channels</strong>.</span></li>
-                        <li><i class="fas fa-rocket"></i> <span><strong>3D Kosmik Imersif</strong>: Kustomisasi astronot 3D, efek partikel, dan eksplorasi orbit planet (Novaris, Quizara, Puzzlon, Flowra, Logitron, Ultimara) menggunakan Three.js & React Three Fiber.</span></li>
-                        <li><i class="fas fa-gamepad"></i> <span><strong>6 Stage Pembelajaran Interaktif</strong>: Multiple choice, image puzzle, flowchart fixer, logic flow circuit, hingga boss co-op battle.</span></li>
-                        <li><i class="fas fa-database"></i> <span><strong>Cloud Save & Global Leaderboard</strong>: Sinkronisasi progres pemain offline-first (Zustand + localStorage) yang otomatis tersimpan ke Supabase PostgreSQL saat online.</span></li>
-                    </ul>
-                    <div class="project-buttons">
-                        <a href="https://space-academy-app.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-primary btn-glow"><i class="fas fa-external-link-alt"></i> Buka Website (Live Demo)</a>
-                        <a href="https://github.com/FavianJZ/space-academy-app" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Lihat Kode</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="projects-grid fade-in">
-
-                <!-- Project: Sistem Monitoring Perlombaan Mahasiswa (Proyek Magang BINUS - On-Going) -->
-                <div class="project-card">
-                    <div class="project-image-container">
-                        <img src="assets/images/projects/Sistem Monitoring 1.jpg" alt="Sistem Monitoring Perlombaan Mahasiswa" class="project-image active">
-                    </div>
-                    <div class="project-content">
-                        <div class="project-badges">
-                            <span class="badge-internship"><i class="fas fa-briefcase"></i> Proyek Magang BINUS</span>
-                            <span class="badge-ongoing"><i class="fas fa-spinner fa-spin"></i> On-Going</span>
+                    <div class="hero-actions">
+                        <div class="social-links">
+                            <a href="http://www.linkedin.com/in/favian-junanda-zahri" target="_blank" class="social-btn"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://github.com/FavianJZ" target="_blank" class="social-btn"><i class="fab fa-github"></i></a>
+                            <a href="mailto:favian.zahri@binus.ac.id" target="_blank" class="social-btn"><i class="fas fa-envelope"></i></a>
                         </div>
-                        <h3>Sistem Monitoring Perlombaan Mahasiswa</h3>
-                        <div class="project-tags">
+                        <a href="assets/docs/CV-BN125078680.pdf" download class="btn-download">
+                            <i class="fas fa-download"></i> Download CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span>Scroll untuk memulai perjalanan</span>
+                <div class="scroll-arrow"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-down"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== ZONE 2: ABOUT ====== -->
+    <section id="about" class="zone" data-altitude="☁️ Atmosphere">
+        <div class="zone-content">
+            <div class="section-header">
+                <span class="zone-badge"><i class="fas fa-satellite-dish"></i> ZONE 02</span>
+                <h2 class="section-title">Tentang Saya</h2>
+                <div class="title-line"></div>
+            </div>
+            <div class="zone-stage-layout">
+                <div class="zone-card-column">
+                    <div class="about-card glass-card">
+                        <div class="terminal-header">
+                            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                            <span class="terminal-title">astronaut_profile.log</span>
+                        </div>
+                        <div class="terminal-body">
+                            <p class="terminal-line"><span class="prompt">$</span> cat profile.txt</p>
+                            <p class="terminal-output">
+                                Mahasiswa Ilmu Komputer di <span class="hl">Universitas Bina Nusantara</span> dengan pengalaman organisasi aktif dan keahlian pemrograman dalam Python dan C++. Cepat beradaptasi dengan alat dan kerangka kerja baru, dengan dorongan kuat untuk memperluas pengetahuan teknis dan keterampilan memecahkan masalah.
+                            </p>
+                            <p class="terminal-output">
+                                Memiliki ketertarikan di bidang <span class="hl">pengembangan teknologi pendidikan</span>, <span class="hl">kecerdasan buatan (AI/ML)</span>, <span class="hl">desain UI/UX</span>, dan manajemen acara.
+                            </p>
+                            <p class="terminal-line"><span class="prompt">$</span> <span class="blink-cursor">_</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="zone-3d-space" id="space-stage-about">
+                    <!-- 3D Astronaut floats here in the open space -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== ZONE 3: EXPERIENCE ====== -->
+    <section id="experience" class="zone" data-altitude="🛸 Low Orbit">
+        <div class="zone-content">
+            <div class="section-header">
+                <span class="zone-badge"><i class="fas fa-rocket"></i> ZONE 03</span>
+                <h2 class="section-title">Pengalaman</h2>
+                <div class="title-line"></div>
+            </div>
+            <div class="zone-stage-layout reverse">
+                <div class="zone-3d-space" id="space-stage-experience">
+                    <!-- 3D UFO hovers here in the open left space -->
+                </div>
+                <div class="zone-card-column">
+                    <div class="timeline">
+                        <div class="timeline-item glass-card">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-badge"><i class="fas fa-briefcase"></i> Magang</div>
+                                <h3>Frontend / Web Developer Intern</h3>
+                                <p class="timeline-company"><i class="fas fa-building"></i> Universitas Bina Nusantara (BINUS)</p>
+                                <ul>
+                                    <li>Mengembangkan <strong>Space Academy App</strong>: aplikasi web gamifikasi interaktif 3D berbasis React 19, TypeScript, Three.js (R3F), Tailwind CSS, dan Supabase.</li>
+                                    <li>Membangun <strong>Sistem Monitoring Perlombaan Mahasiswa (SiMonLomba)</strong>: platform web sentralisasi pendaftaran lomba, timeline kompetisi, verifikasi tim, serta ekspor arsip prestasi ke format Excel dan PDF <em>(On-Going)</em>.</li>
+                                    <li>Mengimplementasikan arsitektur frontend modular, UI responsif, state management modern (Zustand), serta integrasi database cloud real-time.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-item glass-card">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-badge"><i class="fas fa-users"></i> Organisasi</div>
+                                <h3>Anggota Pengurus & Aktivis</h3>
+                                <p class="timeline-company"><i class="fas fa-volleyball-ball"></i> UKM Binus Bola Voli</p>
+                                <p class="timeline-date">Agu 2024 - Sep 2024</p>
+                                <ul>
+                                    <li>Menjaga booth saat event kampus membantu proses pendaftaran anggota baru</li>
+                                    <li>Menjadi wasit dalam pertandingan bola voli antar mahasiswa</li>
+                                    <li>Mengkoordinasi peserta dan memastikan kelancaran jalannya acara</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== ZONE 4: SKILLS ====== -->
+    <section id="skills" class="zone" data-altitude="🌌 Deep Space">
+        <div class="zone-content">
+            <div class="section-header">
+                <span class="zone-badge"><i class="fas fa-meteor"></i> ZONE 04</span>
+                <h2 class="section-title">Keahlian</h2>
+                <div class="title-line"></div>
+            </div>
+            <div class="zone-stage-layout">
+                <div class="zone-card-column">
+                    <div class="skills-grid">
+                        <div class="skill-card glass-card"><i class="fab fa-react skill-icon"></i><span>React</span></div>
+                        <div class="skill-card glass-card"><i class="fas fa-file-code skill-icon"></i><span>TypeScript</span></div>
+                        <div class="skill-card glass-card"><i class="fab fa-js skill-icon"></i><span>JavaScript</span></div>
+                        <div class="skill-card glass-card"><i class="fas fa-cube skill-icon"></i><span>Three.js</span></div>
+                        <div class="skill-card glass-card"><i class="fab fa-css3-alt skill-icon"></i><span>Tailwind CSS</span></div>
+                        <div class="skill-card glass-card"><i class="fas fa-database skill-icon"></i><span>Supabase</span></div>
+                        <div class="skill-card glass-card"><i class="fab fa-python skill-icon"></i><span>Python</span></div>
+                        <div class="skill-card glass-card"><i class="fas fa-code skill-icon"></i><span>C++</span></div>
+                        <div class="skill-card glass-card"><i class="fab fa-html5 skill-icon"></i><span>HTML5</span></div>
+                        <div class="skill-card glass-card"><i class="fab fa-figma skill-icon"></i><span>Figma</span></div>
+                        <div class="skill-card glass-card"><i class="fas fa-users skill-icon"></i><span>Manajemen</span></div>
+                        <div class="skill-card glass-card"><i class="fas fa-comments skill-icon"></i><span>Komunikasi</span></div>
+                    </div>
+                </div>
+                <div class="zone-3d-space" id="space-stage-skills">
+                    <!-- 3D Robot assistant floats here in the open space -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== ZONE 5: PROJECTS ====== -->
+    <section id="projects" class="zone" data-altitude="🌠 Galaxy Core">
+        <div class="zone-content">
+            <div class="section-header">
+                <span class="zone-badge"><i class="fas fa-star"></i> ZONE 05</span>
+                <h2 class="section-title">Misi & Proyek</h2>
+                <div class="title-line"></div>
+            </div>
+
+            <!-- PINNED: Space Academy -->
+            <div class="project-mission pinned-mission glass-card">
+                <div class="mission-status">
+                    <span class="badge-pinned"><i class="fas fa-thumbtack"></i> Pinned Mission</span>
+                    <span class="badge-live"><span class="pulse-dot"></span> Live • Supabase Online</span>
+                </div>
+                <div class="mission-layout">
+                    <div class="mission-gallery">
+                        <div class="gallery-main">
+                            <img src="assets/images/projects/Space Academy 1.png" alt="Space Academy" class="gallery-img" id="pinned-main-img">
+                        </div>
+                        <div class="gallery-thumbs">
+                            <img src="assets/images/projects/Space Academy 1.png" alt="1" class="thumb active" onclick="switchPinnedImg(this)">
+                            <img src="assets/images/projects/Space Academy 2.png" alt="2" class="thumb" onclick="switchPinnedImg(this)">
+                            <img src="assets/images/projects/Space Academy 3.png" alt="3" class="thumb" onclick="switchPinnedImg(this)">
+                            <img src="assets/images/projects/Space Academy 4.png" alt="4" class="thumb" onclick="switchPinnedImg(this)">
+                            <img src="assets/images/projects/Space Academy 5.png" alt="5" class="thumb" onclick="switchPinnedImg(this)">
+                        </div>
+                    </div>
+                    <div class="mission-info">
+                        <h3 class="mission-name">
+                            <svg viewBox="0 0 48 48" class="mission-rocket-svg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M38 10 C38 10 32 12 25 19 C20 24 17 29 17 31 L23 37 C25 37 30 34 35 29 C42 22 44 16 44 16 C44 16 41 13 38 10 Z" fill="currentColor" fill-opacity="0.2" />
+                                <path d="M33 15 C35 18 39 19 39 19" stroke-width="1.2" />
+                                <circle cx="29" cy="23" r="3.2" />
+                                <circle cx="29" cy="23" r="1.5" fill="currentColor" />
+                                <path d="M18 27 L11 28 L14 36 L19 33 Z" />
+                                <path d="M27 18 L28 11 L36 14 L33 19 Z" />
+                                <path d="M17 31 L15 33 L21 39 L23 37" />
+                                <path d="M16 35 L9 42 C12 39 12 37 13 35 Z" fill="currentColor" fill-opacity="0.3" />
+                                <path d="M18 37 C15 41 8 46 8 46 C8 46 13 39 17 36" stroke-width="1.4" />
+                                <path d="M19 35 C17 38 11 43 11 43" stroke-dasharray="1 2" opacity="0.7" />
+                            </svg>
+                            <span>Space Academy App</span>
+                        </h3>
+                        <p class="mission-subtitle">Gamifikasi Interaktif 3D — Pembelajaran Software Engineering</p>
+                        <p class="mission-desc">Aplikasi web gamifikasi 3D interaktif yang mengubah pembelajaran software engineering menjadi petualangan luar angkasa. Multiplayer online co-op hingga 6 pemain dengan real-time gameplay, cinematic intro, dan 6 stage bertingkat yang fully online.</p>
+                        <div class="mission-tech">
+                            <span class="tech-tag">React 19</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Three.js / R3F</span><span class="tech-tag">Tailwind CSS</span><span class="tech-tag">Supabase</span><span class="tech-tag">Zustand</span>
+                        </div>
+                        <div class="mission-links">
+                            <a href="https://space-academy-app.vercel.app/" target="_blank" class="mission-btn primary"><i class="fas fa-globe"></i> Lihat Website</a>
+                            <a href="https://github.com/FavianJZ/space-academy-app" target="_blank" class="mission-btn secondary"><i class="fab fa-github"></i> Source Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Projects -->
+            <div class="missions-grid">
+                <!-- 1. SiMonLomba -->
+                <div class="project-mission glass-card">
+                    <div class="mission-status">
+                        <span class="badge-tag"><i class="fas fa-briefcase"></i> Proyek Magang BINUS</span>
+                        <span class="badge-ongoing"><i class="fas fa-spinner fa-spin"></i> On-Going</span>
+                    </div>
+                    <div class="mission-gallery mini">
+                        <img src="assets/images/projects/Sistem Monitoring 1.jpg" alt="SiMonLomba" class="gallery-img">
+                    </div>
+                    <div class="mission-info">
+                        <h3 class="mission-name">Sistem Monitoring Perlombaan Mahasiswa</h3>
+                        <div class="mission-tech">
                             <span class="tech-tag">React 19</span>
                             <span class="tech-tag">JavaScript</span>
                             <span class="tech-tag">Tailwind CSS v4</span>
@@ -222,218 +399,205 @@
                             <span class="tech-tag">React Router v7</span>
                             <span class="tech-tag">jsPDF</span>
                         </div>
-                        <p>
-                            Platform web terpadu untuk monitoring, pendaftaran, dan pengelolaan partisipasi perlombaan mahasiswa serta arsip prestasi berbasis React. Menampilkan dashboard interaktif, verifikasi tim, timeline kompetisi, dan ekspor data ke Excel & PDF.
-                        </p>
-                        <div class="project-buttons">
-                            <a href="https://github.com/FavianJZ/Sistem-Monitoring-Perlombaan-Mahasiswa" target="_blank" rel="noopener noreferrer">Lihat Kode</a>
-                            <span class="btn-status-ongoing"><i class="fas fa-clock"></i> Masih Dalam Pengembangan</span>
+                        <p class="mission-desc">Platform web terpadu untuk monitoring, pendaftaran, dan pengelolaan partisipasi perlombaan mahasiswa serta arsip prestasi berbasis React. Menampilkan dashboard interaktif, verifikasi tim, timeline kompetisi, dan ekspor data ke Excel & PDF.</p>
+                        <div class="mission-links">
+                            <a href="https://github.com/FavianJZ/Sistem-Monitoring-Perlombaan-Mahasiswa" target="_blank" class="mission-btn secondary"><i class="fab fa-github"></i> Lihat Kode</a>
+                            <span class="mission-status-pill"><i class="fas fa-clock"></i> Masih Dalam Pengembangan</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 1: SafeKota -->
-                <div class="project-card">
-                    <div class="project-image-container">
-                        <img src="assets/images/projects/HCI Project 1.png" alt="Proyek SafeKota - Halaman Utama" class="project-image active">
-                        <img src="assets/images/projects/HCI Project 2.png" alt="Proyek SafeKota - Halaman Peta" class="project-image">
-                        <img src="assets/images/projects/HCI Project 3.png" alt="Proyek SafeKota - Pelaporan Warga" class="project-image">
-                        <img src="assets/images/projects/HCI Project 4.png" alt="Proyek SafeKota - Detail Laporan" class="project-image">
-                        <img src="assets/images/projects/HCI Project 5.png" alt="Proyek SafeKota - Fitur Edukasi" class="project-image">
-                        <img src="assets/images/projects/HCI Project 6.png" alt="Proyek SafeKota - Statistik Kota" class="project-image">
+                <!-- 2. SafeKota -->
+                <div class="project-mission glass-card">
+                    <div class="mission-gallery mini">
+                        <img src="assets/images/projects/HCI Project 1.png" alt="SafeKota" class="gallery-img">
                     </div>
-                    <div class="project-content">
-                        <h3>SafeKota - Aplikasi Pelaporan Warga</h3>
-                        <div class="project-tags">
+                    <div class="mission-info">
+                        <h3 class="mission-name">SafeKota - Aplikasi Pelaporan Warga</h3>
+                        <div class="mission-tech">
                             <span class="tech-tag">HTML5</span>
                             <span class="tech-tag">CSS3</span>
                             <span class="tech-tag">JavaScript</span>
                             <span class="tech-tag">Interactive Map</span>
                             <span class="tech-tag">SDG 11</span>
                         </div>
-                        <p>
-                            Aplikasi web untuk meningkatkan partisipasi masyarakat dalam menciptakan kota aman dan berkelanjutan melalui fitur pelaporan, peta interaktif, dan edukasi SDG 11.
-                        </p>
-                        <div class="project-buttons">
-                            <a href="https://github.com/FavianJZ/HCI" target="_blank" rel="noopener noreferrer">Lihat Kode</a>
-                            <a href="https://favianjz.github.io/HCI/" target="_blank" rel="noopener noreferrer" class="btn-primary">Buka Website</a>
+                        <p class="mission-desc">Aplikasi web untuk meningkatkan partisipasi masyarakat dalam menciptakan kota aman dan berkelanjutan melalui fitur pelaporan, peta interaktif, dan edukasi SDG 11.</p>
+                        <div class="mission-links">
+                            <a href="https://github.com/FavianJZ/HCI" target="_blank" class="mission-btn secondary"><i class="fab fa-github"></i> Lihat Kode</a>
+                            <a href="https://favianjz.github.io/HCI/" target="_blank" class="mission-btn primary"><i class="fas fa-globe"></i> Buka Website</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 2: ZeroWaste -->
-                <div class="project-card">
-                    <div class="project-image-container">
-                        <img src="assets/images/projects/ZeroWaste 1.png" alt="Proyek ZeroWaste - Halaman Utama" class="project-image active">
-                        <img src="assets/images/projects/ZeroWaste 2.png" alt="Proyek ZeroWaste - Halaman Produk" class="project-image">
-                        <img src="assets/images/projects/ZeroWaste 3.png" alt="Proyek ZeroWaste - Keranjang Belanja" class="project-image">
-                        <img src="assets/images/projects/ZeroWaste 4.png" alt="Proyek ZeroWaste - Detail Diskon" class="project-image">
-                        <img src="assets/images/projects/ZeroWaste 5.png" alt="Proyek ZeroWaste - Profil Mitra" class="project-image">
-                        <img src="assets/images/projects/ZeroWaste 6.png" alt="Proyek ZeroWaste - Konfirmasi Pesanan" class="project-image">
+                <!-- 3. ZeroWaste -->
+                <div class="project-mission glass-card">
+                    <div class="mission-gallery mini">
+                        <img src="assets/images/projects/ZeroWaste 1.png" alt="ZeroWaste" class="gallery-img">
                     </div>
-                    <div class="project-content">
-                        <h3>ZeroWaste – Save Food, Save Money</h3>
-                        <div class="project-tags">
+                    <div class="mission-info">
+                        <h3 class="mission-name">ZeroWaste – Save Food, Save Money</h3>
+                        <div class="mission-tech">
                             <span class="tech-tag">HTML5</span>
                             <span class="tech-tag">CSS3</span>
                             <span class="tech-tag">JavaScript</span>
                             <span class="tech-tag">Sustainability</span>
                             <span class="tech-tag">UI/UX</span>
                         </div>
-                        <p>
-                            Proyek web yang menghubungkan restoran dengan makanan berlebih kepada konsumen dengan harga diskon, mendukung keberlanjutan lingkungan dan ekonomi.
-                        </p>
-                        <div class="project-buttons">
-                            <a href="https://github.com/FavianJZ/WebsiteKelompokSE" target="_blank" rel="noopener noreferrer">Lihat Kode</a>
-                            <a href="https://favianjz.github.io/WebsiteKelompokSE/profile.html" target="_blank" rel="noopener noreferrer" class="btn-primary">Buka Website</a>
+                        <p class="mission-desc">Proyek web yang menghubungkan restoran dengan makanan berlebih kepada konsumen dengan harga diskon, mendukung keberlanjutan lingkungan dan ekonomi.</p>
+                        <div class="mission-links">
+                            <a href="https://github.com/FavianJZ/WebsiteKelompokSE" target="_blank" class="mission-btn secondary"><i class="fab fa-github"></i> Lihat Kode</a>
+                            <a href="https://favianjz.github.io/WebsiteKelompokSE/profile.html" target="_blank" class="mission-btn primary"><i class="fas fa-globe"></i> Buka Website</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 3: Machine Learning Skizofrenia -->
-                <div class="project-card">
-                    <div class="project-image-container">
-                        <img src="assets/images/projects/Machine Learning 1.png" alt="Proyek Machine Learning - Input Data" class="project-image active">
-                        <img src="assets/images/projects/Machine Learning 2.png" alt="Proyek Machine Learning - Analisis Data" class="project-image">
-                        <img src="assets/images/projects/Machine Learning 3.png" alt="Proyek Machine Learning - Hasil Prediksi" class="project-image">
+                <!-- 4. Skizofrenia -->
+                <div class="project-mission glass-card">
+                    <div class="mission-gallery mini">
+                        <img src="assets/images/projects/Machine Learning 1.png" alt="Skizofrenia" class="gallery-img">
                     </div>
-                    <div class="project-content">
-                        <h3>Skizofrenia (Machine Learning)</h3>
-                        <div class="project-tags">
+                    <div class="mission-info">
+                        <h3 class="mission-name">Skizofrenia (Machine Learning)</h3>
+                        <div class="mission-tech">
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">Machine Learning</span>
                             <span class="tech-tag">Streamlit</span>
                             <span class="tech-tag">Healthcare AI</span>
                         </div>
-                        <p>
-                            Aplikasi berbasis Machine Learning untuk membantu analisis potensi skizofrenia berdasarkan data input psikologis. Berfungsi sebagai alat skrining awal dan edukasi.
-                        </p>
-                        <div class="project-buttons">
-                            <a href="https://github.com/FavianJZ/ProjectMLSkizo" target="_blank" rel="noopener noreferrer">Lihat Kode</a>
-                            <a href="https://projectmlskizo.streamlit.app/" target="_blank" rel="noopener noreferrer" class="btn-primary">Buka Website</a>
+                        <p class="mission-desc">Aplikasi berbasis Machine Learning untuk membantu analisis potensi skizofrenia berdasarkan data input psikologis. Berfungsi sebagai alat skrining awal dan edukasi.</p>
+                        <div class="mission-links">
+                            <a href="https://github.com/FavianJZ/ProjectMLSkizo" target="_blank" class="mission-btn secondary"><i class="fab fa-github"></i> Lihat Kode</a>
+                            <a href="https://projectmlskizo.streamlit.app/" target="_blank" class="mission-btn primary"><i class="fas fa-globe"></i> Buka Website</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 4: Absolute Cinema -->
-                <div class="project-card">
-                    <div class="project-image-container">
-                        <img src="assets/images/projects/Absolute Cinema 1.png" alt="Proyek Absolute Cinema - Beranda" class="project-image active">
-                        <img src="assets/images/projects/Absolute Cinema 2.png" alt="Proyek Absolute Cinema - Jadwal Film" class="project-image">
-                        <img src="assets/images/projects/Absolute Cinema 3.png" alt="Proyek Absolute Cinema - Detail Sinema" class="project-image">
-                        <img src="assets/images/projects/Absolute Cinema 4.png" alt="Proyek Absolute Cinema - Promo Menarik" class="project-image">
-                        <img src="assets/images/projects/Absolute Cinema 5.png" alt="Proyek Absolute Cinema - Pemilihan Kursi" class="project-image">
-                        <img src="assets/images/projects/Absolute Cinema 6.png" alt="Proyek Absolute Cinema - Pembayaran" class="project-image">
+                <!-- 5. Absolute Cinema -->
+                <div class="project-mission glass-card">
+                    <div class="mission-gallery mini">
+                        <img src="assets/images/projects/Absolute Cinema 1.png" alt="Absolute Cinema" class="gallery-img">
                     </div>
-                    <div class="project-content">
-                        <h3>Absolute Cinema</h3>
-                        <div class="project-tags">
+                    <div class="mission-info">
+                        <h3 class="mission-name">Absolute Cinema</h3>
+                        <div class="mission-tech">
                             <span class="tech-tag">HTML5</span>
                             <span class="tech-tag">CSS3</span>
                             <span class="tech-tag">JavaScript</span>
                             <span class="tech-tag">Cinema Booking</span>
                         </div>
-                        <p>
-                            Website bioskop modern yang memungkinkan pengguna melihat film sedang tayang, promo menarik, dan informasi bioskop dengan pengalaman pemesanan tiket yang intuitif.
-                        </p>
-                        <div class="project-buttons">
-                            <a href="https://github.com/FavianJZ/AbsoluteCinema" target="_blank" rel="noopener noreferrer">Lihat Kode</a>
-                            <a href="https://favianjz.github.io/AbsoluteCinema/index.html" target="_blank" rel="noopener noreferrer" class="btn-primary">Buka Website</a>
+                        <p class="mission-desc">Website bioskop modern yang memungkinkan pengguna melihat film sedang tayang, promo menarik, dan informasi bioskop dengan pengalaman pemesanan tiket yang intuitif.</p>
+                        <div class="mission-links">
+                            <a href="https://github.com/FavianJZ/AbsoluteCinema" target="_blank" class="mission-btn secondary"><i class="fab fa-github"></i> Lihat Kode</a>
+                            <a href="https://favianjz.github.io/AbsoluteCinema/index.html" target="_blank" class="mission-btn primary"><i class="fas fa-globe"></i> Buka Website</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 5: Absence Alert -->
-                <div class="project-card">
-                    <div class="project-image-container">
-                        <img src="assets/images/projects/AI Project 1.jpg" alt="Proyek Absence Alert - Arsitektur AI" class="project-image active">
-                        <img src="assets/images/projects/AI Project 2.jpg" alt="Proyek Absence Alert - Deteksi Objek" class="project-image">
-                        <img src="assets/images/projects/AI Project 3.jpg" alt="Proyek Absence Alert - Pengenalan Wajah" class="project-image">
-                        <img src="assets/images/projects/AI Project 4.jpg" alt="Proyek Absence Alert - Analisis Kelas" class="project-image">
-                        <img src="assets/images/projects/AI Project 5.jpg" alt="Proyek Absence Alert - Laporan Kehadiran" class="project-image">
+                <!-- 6. Absence Alert -->
+                <div class="project-mission glass-card">
+                    <div class="mission-gallery mini">
+                        <img src="assets/images/projects/AI Project 1.jpg" alt="Absence Alert" class="gallery-img">
                     </div>
-                    <div class="project-content">
-                        <h3>Absence Alert - Aplikasi Berbasis AI</h3>
-                        <div class="project-tags">
+                    <div class="mission-info">
+                        <h3 class="mission-name">Absence Alert - Aplikasi Berbasis AI</h3>
+                        <div class="mission-tech">
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">Computer Vision</span>
                             <span class="tech-tag">Deep Learning</span>
                             <span class="tech-tag">Smart Classroom</span>
                         </div>
-                        <p>
-                            Sistem cerdas berbasis AI untuk mendeteksi jumlah dan kehadiran siswa di kelas secara otomatis menggunakan computer vision dan machine learning presisi tinggi.
-                        </p>
-                        <div class="project-buttons">
-                            <a href="https://github.com/FavianJZ/ABSENCE-ALERT" target="_blank" rel="noopener noreferrer">Lihat Kode</a>
-                            <a href="assets/docs/CV-BN125078680.pdf" target="_blank" rel="noopener noreferrer" class="btn-primary">Baca Selengkapnya</a>
+                        <p class="mission-desc">Sistem cerdas berbasis AI untuk mendeteksi jumlah dan kehadiran siswa di kelas secara otomatis menggunakan computer vision dan machine learning presisi tinggi.</p>
+                        <div class="mission-links">
+                            <a href="https://github.com/FavianJZ/ABSENCE-ALERT" target="_blank" class="mission-btn secondary"><i class="fab fa-github"></i> Lihat Kode</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 6: BinusRent -->
-                <div class="project-card">
-                    <div class="project-image-container">
-                        <img src="assets/images/projects/Binus Rent 1.png" alt="Proyek Binus Rent - Desain Login" class="project-image active">
-                        <img src="assets/images/projects/Binus Rent 2.png" alt="Proyek Binus Rent - Dashboard Utama" class="project-image">
+                <!-- 7. BinusRent -->
+                <div class="project-mission glass-card">
+                    <div class="mission-gallery mini">
+                        <img src="assets/images/projects/Binus Rent 1.png" alt="BINUS Rent" class="gallery-img">
                     </div>
-                    <div class="project-content">
-                        <h3>BinusRent - Aplikasi Penyewaan</h3>
-                        <div class="project-tags">
+                    <div class="mission-info">
+                        <h3 class="mission-name">BinusRent - Aplikasi Penyewaan</h3>
+                        <div class="mission-tech">
                             <span class="tech-tag">Figma</span>
-                            <span class="tech-tag">UI/UX Design</span>
+                            <span class="tech-tag">UI/UX</span>
                             <span class="tech-tag">Wireframing</span>
-                            <span class="tech-tag">Design System</span>
+                            <span class="tech-tag">Mobile App</span>
                         </div>
-                        <p>
-                            Kontribusi perancangan antarmuka (UI) dan pengalaman pengguna (UX) menggunakan Figma, berfokus pada flow halaman otentikasi login serta layout dasbor utama.
-                        </p>
-                    </div>
-                </div>                
-
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="slide-in-right">
-        <div class="container">
-            <h2 class="section-title fade-in">Hubungi Saya</h2>
-            <div class="contact-content fade-in">
-                <p class="contact-intro">
-                    Saya selalu terbuka untuk diskusi tentang proyek baru, peluang kolaborasi, magang, atau sekadar bertukar ide tentang teknologi. Jangan ragu untuk menghubungi saya!
-                </p>
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:favian.zahri@binus.ac.id">favian.zahri@binus.ac.id</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <a href="https://wa.me/6281358614202" target="_blank" rel="noopener noreferrer">+62 813-5861-4202</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Jakarta Timur, Indonesia</span>
+                        <p class="mission-desc">Kontribusi perancangan antarmuka (UI) dan pengalaman pengguna (UX) menggunakan Figma, berfokus pada flow halaman otentikasi login serta layout dasbor utama.</p>
+                        <div class="mission-links">
+                            <a href="assets/docs/CV-BN125078680.pdf" target="_blank" class="mission-btn secondary"><i class="fas fa-file-alt"></i> Baca Selengkapnya</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <div class="footer-socials">
-                <a href="http://www.linkedin.com/in/favian-junanda-zahri" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/FavianJZ" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="mailto:favian.zahri@binus.ac.id" target="_blank" rel="noopener noreferrer" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    <!-- ====== ZONE 6: CONTACT ====== -->
+    <section id="contact" class="zone" data-altitude="✨ Galaxy Edge">
+        <div class="zone-content">
+            <div class="section-header">
+                <span class="zone-badge"><i class="fas fa-satellite"></i> ZONE 06</span>
+                <h2 class="section-title">Hubungi Saya</h2>
+                <div class="title-line"></div>
             </div>
-            <p>&copy; 2025 Favian Junnanda Zahri. All rights reserved.</p>
+            <div class="contact-station glass-card">
+                <h3>
+                    <svg viewBox="0 0 48 48" class="contact-header-svg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M13 39 L25 39" stroke-width="2" />
+                        <path d="M19 39 L19 35" stroke-width="1.8" />
+                        <path d="M15 35 L19 31 L23 35 Z" />
+                        <circle cx="19" cy="31" r="1.5" fill="currentColor" />
+                        <path d="M13 32 C12 25 21 16 28 15 C30 15 32 17 31 20 C27 27 18 36 15 36 C13.5 36 13 34 13 32 Z" fill="currentColor" fill-opacity="0.2" />
+                        <path d="M13 32 C17 21 26 15 30 18" stroke-width="1.4" opacity="0.6" />
+                        <line x1="21" y1="23" x2="27" y2="17" stroke-width="2" />
+                        <circle cx="28" cy="16" r="1.5" fill="currentColor" />
+                        <path d="M29 11 A 8 8 0 0 1 36 18" stroke-width="1.4" />
+                        <path d="M33 7 A 14 14 0 0 1 42 16" stroke-width="1.4" opacity="0.8" />
+                        <path d="M37 3 A 20 20 0 0 1 47 13" stroke-width="1.2" opacity="0.5" stroke-dasharray="2 2" />
+                    </svg>
+                    <span>Communications Station</span>
+                </h3>
+                <p class="station-sub">Kirim transmisi ke koordinat saya</p>
+                <div class="contact-grid">
+                    <a href="mailto:favian.zahri@binus.ac.id" class="contact-link glass-card">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-info"><span class="contact-label">Email</span><span class="contact-value">favian.zahri@binus.ac.id</span></div>
+                    </a>
+                    <a href="http://www.linkedin.com/in/favian-junanda-zahri" target="_blank" class="contact-link glass-card">
+                        <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+                        <div class="contact-info"><span class="contact-label">LinkedIn</span><span class="contact-value">Favian Junnanda Zahri</span></div>
+                    </a>
+                    <a href="https://github.com/FavianJZ" target="_blank" class="contact-link glass-card">
+                        <div class="contact-icon"><i class="fab fa-github"></i></div>
+                        <div class="contact-info"><span class="contact-label">GitHub</span><span class="contact-value">FavianJZ</span></div>
+                    </a>
+                </div>
+            </div>
+            <footer class="space-footer">
+                <p>&copy; 2025 Favian Junnanda Zahri — Crafted with
+                    <svg viewBox="0 0 48 48" class="footer-rocket-svg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M38 10 C38 10 32 12 25 19 C20 24 17 29 17 31 L23 37 C25 37 30 34 35 29 C42 22 44 16 44 16 C44 16 41 13 38 10 Z" fill="currentColor" fill-opacity="0.2" />
+                        <path d="M33 15 C35 18 39 19 39 19" stroke-width="1.2" />
+                        <circle cx="29" cy="23" r="3.2" />
+                        <circle cx="29" cy="23" r="1.5" fill="currentColor" />
+                        <path d="M18 27 L11 28 L14 36 L19 33 Z" />
+                        <path d="M27 18 L28 11 L36 14 L33 19 Z" />
+                        <path d="M17 31 L15 33 L21 39 L23 37" />
+                        <path d="M16 35 L9 42 C12 39 12 37 13 35 Z" fill="currentColor" fill-opacity="0.3" />
+                        <path d="M18 37 C15 41 8 46 8 46 C8 46 13 39 17 36" stroke-width="1.4" />
+                        <path d="M19 35 C17 38 11 43 11 43" stroke-dasharray="1 2" opacity="0.7" />
+                    </svg>
+                    across the galaxy
+                </p>
+            </footer>
         </div>
-    </footer>
+    </section>
 
-    <a href="#hero" class="back-to-top" aria-label="Kembali ke atas"><i class="fas fa-arrow-up"></i></a>
-
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="assets/js/script.js"></script>
+    <script type="module" src="assets/js/script.js"></script>
 </body>
+
 </html>
