@@ -560,6 +560,55 @@ section {
     line-height: 1.4;
 }
 
+/* Project Badges (Internship & Status) */
+.project-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.badge-internship {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(64, 251, 157, 0.15);
+    color: var(--accent);
+    border: 1px solid rgba(64, 251, 157, 0.35);
+    box-shadow: 0 0 10px rgba(64, 251, 157, 0.12);
+}
+
+.badge-ongoing {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(255, 184, 77, 0.15);
+    color: #ffb84d;
+    border: 1px solid rgba(255, 184, 77, 0.35);
+    box-shadow: 0 0 10px rgba(255, 184, 77, 0.12);
+}
+
+.btn-status-ongoing {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+    padding: 0.55rem 1.1rem;
+    border-radius: 6px;
+    background: rgba(255, 184, 77, 0.1);
+    color: #ffb84d;
+    border: 1px solid rgba(255, 184, 77, 0.3);
+}
+
 /* Project Tech Tags */
 .project-tags {
     display: flex;

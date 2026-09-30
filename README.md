@@ -19,10 +19,11 @@
 
 ## 👨‍💻 Tentang Saya
 
-Mahasiswa **Ilmu Komputer** di **Universitas Bina Nusantara (BINUS)** dengan minat mendalam pada pengembangan web, kecerdasan buatan (*Artificial Intelligence & Machine Learning*), serta desain antarmuka (*UI/UX Design*).
+Mahasiswa **Ilmu Komputer** di **Universitas Bina Nusantara (BINUS)** dengan minat mendalam pada pengembangan web fullstack (*React & Three.js*), kecerdasan buatan (*AI & Machine Learning*), serta desain antarmuka (*UI/UX Design*).
 
-- 🏫 **Universitas**: Bina Nusantara University
-- 💻 **Fokus**: Software Engineering, Machine Learning, UI/UX Design
+- 🏫 **Universitas**: Bina Nusantara University (BINUS)
+- 💼 **Pengalaman**: Frontend / Web Developer Intern di Universitas Bina Nusantara
+- 💻 **Fokus**: Web Development (React & TypeScript), 3D Interactive Web (Three.js), Machine Learning, UI/UX
 - 🚀 **Status**: Terbuka untuk magang, kolaborasi, dan proyek teknologi
 
 ---
@@ -31,10 +32,10 @@ Mahasiswa **Ilmu Komputer** di **Universitas Bina Nusantara (BINUS)** dengan min
 
 | Kategori | Teknologi |
 |---|---|
-| **Bahasa Pemrograman** | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![C++](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=c%2B%2B&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) |
-| **Web Frontend** | ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white) ![Three.js](https://img.shields.io/badge/Three.js-black?style=flat-square&logo=three.js&logoColor=white) |
-| **AI / Machine Learning** | ![Computer Vision](https://img.shields.io/badge/Computer_Vision-5C3-blue?style=flat-square) ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white) |
-| **Design & Tools** | ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=flat-square&logo=figma&logoColor=white) ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white) ![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white) |
+| **Bahasa Pemrograman** | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![C++](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=c%2B%2B&logoColor=white) |
+| **Web & Framework** | ![React](https://img.shields.io/badge/React_19-20232A?style=flat-square&logo=react&logoColor=61DAFB) ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white) ![Three.js](https://img.shields.io/badge/Three.js-black?style=flat-square&logo=three.js&logoColor=white) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white) ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white) |
+| **Backend & Cloud** | ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=flat-square&logo=supabase&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white) ![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white) |
+| **AI, Tools & Design** | ![Computer Vision](https://img.shields.io/badge/Computer_Vision-5C3-blue?style=flat-square) ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white) ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=flat-square&logo=figma&logoColor=white) ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white) |
 
 ---
 
@@ -42,6 +43,8 @@ Mahasiswa **Ilmu Komputer** di **Universitas Bina Nusantara (BINUS)** dengan min
 
 | Proyek | Kategori / Tags | Link |
 |---|---|---|
+| **Space Academy App** | `React 19` `TypeScript` `Three.js` `R3F` `Tailwind` `Zustand` `Supabase` `Magang BINUS` | [Repo](https://github.com/FavianJZ/space-academy-app) |
+| **Sistem Monitoring Perlombaan Mahasiswa** | `React 19` `JavaScript` `Tailwind CSS v4` `Vite` `jsPDF` `Magang BINUS (On-Going)` | [Repo](https://github.com/FavianJZ/Sistem-Monitoring-Perlombaan-Mahasiswa) |
 | **SafeKota** | `HTML5` `CSS3` `JavaScript` `Interactive Map` `SDG 11` | [Demo](https://favianjz.github.io/HCI/) • [Repo](https://github.com/FavianJZ/HCI) |
 | **ZeroWaste** | `HTML5` `CSS3` `JavaScript` `Sustainability` `E-Commerce` | [Demo](https://favianjz.github.io/WebsiteKelompokSE/profile.html) • [Repo](https://github.com/FavianJZ/WebsiteKelompokSE) |
 | **Skizofrenia Screening ML** | `Python` `Machine Learning` `Streamlit` `Healthcare AI` | [Demo](https://projectmlskizo.streamlit.app/) • [Repo](https://github.com/FavianJZ/ProjectMLSkizo) |
@@ -66,6 +69,8 @@ Portofolio/
 │       ├── profile/
 │       │   └── PhotoFormal.jpg  # Foto profil
 │       └── projects/            # Seluruh aset tangkapan layar proyek
+│           ├── Space Academy 1.jpg
+│           ├── Sistem Monitoring 1.jpg
 │           ├── HCI Project 1..6.png
 │           ├── ZeroWaste 1..6.png
 │           ├── Machine Learning 1..3.png
@@ -75,19 +80,6 @@ Portofolio/
 ├── index.html                   # Halaman utama portofolio
 └── README.md                    # Dokumentasi repositori
 ```
-
----
-
-## 💻 Menjalankan Secara Lokal
-
-1. **Clone repository**:
-   ```bash
-   git clone https://github.com/FavianJZ/Portofolio.git
-   cd Portofolio
-   ```
-
-2. **Buka langsung di browser**:
-   Cukup buka file `index.html` menggunakan browser favorit Anda (atau gunakan ekstensi *Live Server* di VS Code / Antigravity IDE).
 
 ---
 

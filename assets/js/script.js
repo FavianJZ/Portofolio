@@ -1,11 +1,11 @@
 // Typing Effect
 const typingText = document.getElementById('typing-effect');
 const phrases = [
-    "Mahasiswa Ilmu Komputer.",
-    "Pengembang Web.",
+    "Mahasiswa Ilmu Komputer BINUS.",
+    "Frontend & Web Developer.",
+    "Pengembang React & Three.js 3D.",
     "Peminat AI & Machine Learning.",
-    "Desainer UI/UX.",
-    "Pecinta Teknologi Pendidikan."
+    "Desainer UI/UX."
 ];
 let phraseIndex = 0;
 let charIndex = 0;
