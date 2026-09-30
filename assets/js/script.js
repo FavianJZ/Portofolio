@@ -37,7 +37,7 @@ function type() {
 
 // Interactive Project Card Sliders
 function initProjectSliders() {
-    const projectCards = document.querySelectorAll('.project-card');
+    const projectCards = document.querySelectorAll('.project-card, .pinned-project-card');
 
     projectCards.forEach(card => {
         const container = card.querySelector('.project-image-container');
