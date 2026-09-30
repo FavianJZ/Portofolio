@@ -43,7 +43,7 @@ Mahasiswa **Ilmu Komputer** di **Universitas Bina Nusantara (BINUS)** dengan min
 
 | Proyek | Kategori / Tags | Link |
 |---|---|---|
-| 📌 **Space Academy App** *(Pinned Main Project)* | `React 19` `TypeScript` `Three.js` `R3F` `Tailwind` `Zustand` `Supabase` `Magang BINUS` | [Demo](https://space-academy-app.vercel.app/) • [Repo](https://github.com/FavianJZ/space-academy-app) |
+| 📌 **Space Academy App** *(Pinned Main Project)* | `React 19` `TypeScript` `Three.js` `R3F` `Tailwind` `Zustand` `Supabase Realtime` `Co-Op Multiplayer (Stage 6)` `Magang BINUS` | [Demo](https://space-academy-app.vercel.app/) • [Repo](https://github.com/FavianJZ/space-academy-app) |
 | **Sistem Monitoring Perlombaan Mahasiswa** | `React 19` `JavaScript` `Tailwind CSS v4` `Vite` `jsPDF` `Magang BINUS (On-Going)` | [Repo](https://github.com/FavianJZ/Sistem-Monitoring-Perlombaan-Mahasiswa) |
 | **SafeKota** | `HTML5` `CSS3` `JavaScript` `Interactive Map` `SDG 11` | [Demo](https://favianjz.github.io/HCI/) • [Repo](https://github.com/FavianJZ/HCI) |
 | **ZeroWaste** | `HTML5` `CSS3` `JavaScript` `Sustainability` `E-Commerce` | [Demo](https://favianjz.github.io/WebsiteKelompokSE/profile.html) • [Repo](https://github.com/FavianJZ/WebsiteKelompokSE) |
