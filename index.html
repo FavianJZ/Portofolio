@@ -11,15 +11,13 @@
     <meta name="author" content="Favian Junnanda Zahri">
     <title>Favian Junnanda Zahri | Space Odyssey Portfolio</title>
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
-    <!-- Three.js -->
     <script type="importmap">
     {
         "imports": {
@@ -29,13 +27,12 @@
     }
     </script>
 
-    <!-- Custom CSS & Favicon -->
     <link rel="icon" type="image/jpeg" href="assets/images/profile/PhotoFormal.jpg">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?v=preview-cert">
 </head>
 
 <body>
-    <!-- Loading Screen -->
+
     <div id="loading-screen" class="loading-screen">
         <div class="loader">
             <div class="loader-ring"></div>
@@ -47,13 +44,11 @@
         </div>
     </div>
 
-    <!-- Full-page 3D Canvas Background -->
     <canvas id="three-canvas"></canvas>
 
-    <!-- Space HUD Navigation (Matching Reference UI) -->
     <nav class="space-nav-hud" id="space-nav-hud" aria-label="Space Odyssey Navigation">
         <div class="nav-nodes-column">
-            <!-- 1. Solar System (Hero/Orbit) -->
+
             <a href="#hero" class="nav-node active" data-tooltip="Orbit System" data-label="ORBIT">
                 <div class="node-icon">
                     <svg viewBox="0 0 48 48" class="hud-svg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -72,7 +67,6 @@
                 </div>
             </a>
 
-            <!-- 2. Astronaut (About) -->
             <a href="#about" class="nav-node" data-tooltip="Astronaut Profile" data-label="ASTRONAUT">
                 <div class="node-icon">
                     <svg viewBox="0 0 48 48" class="hud-svg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -90,7 +84,6 @@
                 </div>
             </a>
 
-            <!-- 3. UFO (Experience) -->
             <a href="#experience" class="nav-node" data-tooltip="Expeditions" data-label="UFO BASE">
                 <div class="node-icon">
                     <svg viewBox="0 0 48 48" class="hud-svg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -114,7 +107,6 @@
                 </div>
             </a>
 
-            <!-- 4. Energy Core (Skills) -->
             <a href="#skills" class="nav-node" data-tooltip="Core Systems" data-label="SYSTEMS">
                 <div class="node-icon">
                     <svg viewBox="0 0 48 48" class="hud-svg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -132,11 +124,10 @@
                 </div>
             </a>
 
-            <!-- 5. Rocket Ship (Projects - Exactly like Screenshot 3!) -->
             <a href="#projects" class="nav-node" data-tooltip="Rocket Ship Projects" data-label="ROCKET SHIP">
                 <div class="node-icon">
                     <svg viewBox="0 0 48 48" class="hud-svg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                        <!-- Rocket Body angled 42 deg to top-right -->
+
                         <path d="M38 10 C38 10 32 12 25 19 C20 24 17 29 17 31 L23 37 C25 37 30 34 35 29 C42 22 44 16 44 16 C44 16 41 13 38 10 Z" fill="currentColor" fill-opacity="0.15" />
                         <path d="M33 15 C35 18 39 19 39 19" stroke-width="1.2" />
                         <circle cx="29" cy="23" r="3.2" />
@@ -151,7 +142,6 @@
                 </div>
             </a>
 
-            <!-- 6. Ground Satellite (Contact) -->
             <a href="#contact" class="nav-node" data-tooltip="Comms & Contact" data-label="GROUND DISH">
                 <div class="node-icon">
                     <svg viewBox="0 0 48 48" class="hud-svg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -173,8 +163,7 @@
 
     </nav>
 
-    <!-- ====== ZONE 1: HERO ====== -->
-    <section id="hero" class="zone" data-altitude="🌍 Surface">
+    <section id="hero" class="zone" data-altitude="Surface">
         <div class="zone-content">
             <div class="hero-container">
                 <div class="hero-photo-frame">
@@ -191,12 +180,12 @@
                     </div>
                     <div class="hero-actions">
                         <div class="social-links">
-                            <a href="http://www.linkedin.com/in/favian-junanda-zahri" target="_blank" class="social-btn"><i class="fab fa-linkedin"></i></a>
-                            <a href="https://github.com/FavianJZ" target="_blank" class="social-btn"><i class="fab fa-github"></i></a>
-                            <a href="mailto:favian.zahri@binus.ac.id" target="_blank" class="social-btn"><i class="fas fa-envelope"></i></a>
+                            <a href="https://www.linkedin.com/in/favian-junanda-zahri" target="_blank" class="social-btn" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://github.com/FavianJZ" target="_blank" class="social-btn" title="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="mailto:favian.zahri@binus.ac.id" target="_blank" class="social-btn" title="Email"><i class="fas fa-envelope"></i></a>
                         </div>
-                        <a href="assets/docs/CV-BN125078680.pdf" download class="btn-download">
-                            <i class="fas fa-download"></i> Download CV
+                        <a href="assets/docs/CV - Favian Junnanda Zahri (English).pdf" download="CV - Favian Junnanda Zahri (English).pdf" class="btn-download" title="Download CV">
+                            DOWNLOAD CV
                         </a>
                     </div>
                 </div>
@@ -208,11 +197,24 @@
         </div>
     </section>
 
-    <!-- ====== ZONE 2: ABOUT ====== -->
-    <section id="about" class="zone" data-altitude="☁️ Atmosphere">
+    <section id="about" class="zone" data-altitude="Atmosphere">
         <div class="zone-content">
             <div class="section-header">
-                <span class="zone-badge"><i class="fas fa-satellite-dish"></i> ZONE 02</span>
+                <span class="zone-badge">
+                    <svg viewBox="0 0 48 48" class="zone-badge-svg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="13" y="10" width="22" height="18" rx="9" />
+                        <rect x="16" y="13" width="16" height="12" rx="5" fill="currentColor" fill-opacity="0.15" />
+                        <path d="M19 16 A 5 4 0 0 1 29 16" stroke-width="1.2" opacity="0.8" />
+                        <path d="M17 29 C17 31 31 31 31 29" />
+                        <path d="M14 31 L34 31" />
+                        <path d="M13 32 L9 39 C8.5 40 9 42 10.5 42 L37.5 42 C39 42 39.5 40 39 39 L35 32" />
+                        <rect x="19" y="34" width="10" height="7" rx="1.5" />
+                        <line x1="22" y1="37" x2="26" y2="37" stroke-width="1.2" />
+                        <line x1="22" y1="39" x2="24" y2="39" stroke-width="1.2" />
+                        <rect x="33" y="34" width="4" height="4" rx="0.5" stroke-width="1.2" />
+                    </svg>
+                    <span>ZONE 02</span>
+                </span>
                 <h2 class="section-title">Tentang Saya</h2>
                 <div class="title-line"></div>
             </div>
@@ -226,60 +228,90 @@
                         <div class="terminal-body">
                             <p class="terminal-line"><span class="prompt">$</span> cat profile.txt</p>
                             <p class="terminal-output">
-                                Mahasiswa Ilmu Komputer di <span class="hl">Universitas Bina Nusantara</span> dengan pengalaman organisasi aktif dan keahlian pemrograman dalam Python dan C++. Cepat beradaptasi dengan alat dan kerangka kerja baru, dengan dorongan kuat untuk memperluas pengetahuan teknis dan keterampilan memecahkan masalah.
+                                Mahasiswa Sarjana Ilmu Komputer (Software Engineering) di <span class="hl">Universitas Bina Nusantara (BINUS)</span> (Sep 2023 – Sekarang). Berpengalaman sebagai IT Developer (Frontend) pada program enrichment BINUS School of Computer Science, mengembangkan antarmuka web interaktif berkinerja tinggi.
                             </p>
                             <p class="terminal-output">
-                                Memiliki ketertarikan di bidang <span class="hl">pengembangan teknologi pendidikan</span>, <span class="hl">kecerdasan buatan (AI/ML)</span>, <span class="hl">desain UI/UX</span>, dan manajemen acara.
+                                Fokus pada <span class="hl">React, TypeScript, Three.js, Zustand, Tailwind CSS</span>, kecerdasan buatan (<span class="hl">AI/ML & Computer Vision</span>), serta keaktifan kepemimpinan dan manajemen organisasi.
                             </p>
                             <p class="terminal-line"><span class="prompt">$</span> <span class="blink-cursor">_</span></p>
                         </div>
                     </div>
                 </div>
                 <div class="zone-3d-space" id="space-stage-about">
-                    <!-- 3D Astronaut floats here in the open space -->
+
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ====== ZONE 3: EXPERIENCE ====== -->
-    <section id="experience" class="zone" data-altitude="🛸 Low Orbit">
+    <section id="experience" class="zone" data-altitude="Low Orbit">
         <div class="zone-content">
             <div class="section-header">
-                <span class="zone-badge"><i class="fas fa-rocket"></i> ZONE 03</span>
+                <span class="zone-badge">
+                    <svg viewBox="0 0 48 48" class="zone-badge-svg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M18 20 C18 14 30 14 30 20 Z" />
+                        <circle cx="21" cy="18" r="1.2" fill="currentColor" />
+                        <circle cx="27" cy="18" r="1.2" fill="currentColor" />
+                        <ellipse cx="24" cy="23" rx="17" ry="4.5" fill="currentColor" fill-opacity="0.12" />
+                        <path d="M7 23 C7 27 41 27 41 23" />
+                        <circle cx="12" cy="24" r="0.9" fill="currentColor" />
+                        <circle cx="18" cy="25" r="0.9" fill="currentColor" />
+                        <circle cx="24" cy="25.5" r="0.9" fill="currentColor" />
+                        <circle cx="30" cy="25" r="0.9" fill="currentColor" />
+                        <circle cx="36" cy="24" r="0.9" fill="currentColor" />
+                        <path d="M17 26.5 L20 30 L28 30 L31 26.5" />
+                        <path d="M16 29 L12 36 L15 36" />
+                        <path d="M32 29 L36 36 L33 36" />
+                        <path d="M24 30 L24 37" />
+                        <path d="M8 17 L9 15 L10 17 L9 19 Z" fill="currentColor" stroke="none" />
+                        <path d="M38 17 L39 15 L40 17 L39 19 Z" fill="currentColor" stroke="none" />
+                    </svg>
+                    <span>ZONE 03</span>
+                </span>
                 <h2 class="section-title">Pengalaman</h2>
                 <div class="title-line"></div>
             </div>
             <div class="zone-stage-layout reverse">
                 <div class="zone-3d-space" id="space-stage-experience">
-                    <!-- 3D UFO hovers here in the open left space -->
+
                 </div>
                 <div class="zone-card-column">
                     <div class="timeline">
                         <div class="timeline-item glass-card">
                             <div class="timeline-dot"></div>
                             <div class="timeline-content">
-                                <div class="timeline-badge"><i class="fas fa-briefcase"></i> Magang</div>
-                                <h3>Frontend / Web Developer Intern</h3>
-                                <p class="timeline-company"><i class="fas fa-building"></i> Universitas Bina Nusantara (BINUS)</p>
+                                <div class="timeline-badge">Magang & Pekerjaan</div>
+                                <h3>IT Developer (Frontend Developer) – Enrichment Program</h3>
+                                <p class="timeline-company">School of Computer Science, BINUS University</p>
+                                <p class="timeline-date">Februari 2026 – Sekarang | Jakarta, Indonesia</p>
                                 <ul>
-                                    <li>Mengembangkan <strong>Space Academy App</strong>: aplikasi web gamifikasi interaktif 3D berbasis React 19, TypeScript, Three.js (R3F), Tailwind CSS, dan Supabase.</li>
-                                    <li>Membangun <strong>Sistem Monitoring Perlombaan Mahasiswa (SiMonLomba)</strong>: platform web sentralisasi pendaftaran lomba, timeline kompetisi, verifikasi tim, serta ekspor arsip prestasi ke format Excel dan PDF <em>(On-Going)</em>.</li>
-                                    <li>Mengimplementasikan arsitektur frontend modular, UI responsif, state management modern (Zustand), serta integrasi database cloud real-time.</li>
+                                    <li>Mengembangkan platform web gamifikasi interaktif <strong>'Space Academy'</strong> sebagai media edukasi pengenalan bidang Software Engineering kepada calon mahasiswa.</li>
+                                    <li>Membangun antarmuka web responsif dan berkinerja tinggi menggunakan <strong>React, TypeScript, Vite, dan Tailwind CSS</strong>, serta mengintegrasikan <strong>Three.js</strong> untuk aset 3D interaktif.</li>
+                                    <li>Mengimplementasikan manajemen state terpusat dengan <strong>Zustand</strong> dan berkolaborasi dalam tim lintas fungsi bersama desainer UI/UX serta pengembang backend.</li>
                                 </ul>
                             </div>
                         </div>
                         <div class="timeline-item glass-card">
                             <div class="timeline-dot"></div>
                             <div class="timeline-content">
-                                <div class="timeline-badge"><i class="fas fa-users"></i> Organisasi</div>
-                                <h3>Anggota Pengurus & Aktivis</h3>
-                                <p class="timeline-company"><i class="fas fa-volleyball-ball"></i> UKM Binus Bola Voli</p>
-                                <p class="timeline-date">Agu 2024 - Sep 2024</p>
+                                <div class="timeline-badge">Organisasi</div>
+                                <h3>Anggota Pengurus & Koordinator Acara</h3>
+                                <p class="timeline-company">UKM Binus Bola Voli, BINUS University</p>
+                                <p class="timeline-date">Agustus 2024 – September 2024</p>
                                 <ul>
-                                    <li>Menjaga booth saat event kampus membantu proses pendaftaran anggota baru</li>
-                                    <li>Menjadi wasit dalam pertandingan bola voli antar mahasiswa</li>
-                                    <li>Mengkoordinasi peserta dan memastikan kelancaran jalannya acara</li>
+                                    <li>Mengoordinasikan peserta turnamen olahraga, bertugas sebagai wasit pertandingan resmi, dan mengelola operasional stan pendaftaran.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-item glass-card">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-badge">Organisasi</div>
+                                <h3>Staff Liaison Officer (LO) & Master of Ceremony (MC)</h3>
+                                <p class="timeline-company">Student Support Office, BINUS Bekasi</p>
+                                <p class="timeline-date">2024</p>
+                                <ul>
+                                    <li>Memandu dan memfasilitasi kegiatan orientasi mahasiswa baru serta mengoordinasikan alur teknis acara dan komunikasi narasumber.</li>
                                 </ul>
                             </div>
                         </div>
@@ -289,51 +321,196 @@
         </div>
     </section>
 
-    <!-- ====== ZONE 4: SKILLS ====== -->
-    <section id="skills" class="zone" data-altitude="🌌 Deep Space">
+    <section id="skills" class="zone" data-altitude="Deep Space">
         <div class="zone-content">
             <div class="section-header">
-                <span class="zone-badge"><i class="fas fa-meteor"></i> ZONE 04</span>
-                <h2 class="section-title">Keahlian</h2>
+                <span class="zone-badge">
+                    <svg viewBox="0 0 48 48" class="zone-badge-svg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="24" cy="24" r="17" stroke-dasharray="6 3 2 3" opacity="0.6" />
+                        <polygon points="24,10 35,16.5 35,29.5 24,36 13,29.5 13,16.5" />
+                        <circle cx="24" cy="10" r="1.3" fill="currentColor" />
+                        <circle cx="35" cy="16.5" r="1.3" fill="currentColor" />
+                        <circle cx="35" cy="29.5" r="1.3" fill="currentColor" />
+                        <circle cx="24" cy="36" r="1.3" fill="currentColor" />
+                        <circle cx="13" cy="29.5" r="1.3" fill="currentColor" />
+                        <circle cx="13" cy="16.5" r="1.3" fill="currentColor" />
+                        <circle cx="24" cy="24" r="4.5" fill="currentColor" fill-opacity="0.25" />
+                        <path d="M25 18 L21 24 L27 24 L23 30" stroke-width="1.8" />
+                    </svg>
+                    <span>ZONE 04</span>
+                </span>
+                <h2 class="section-title">Keahlian & Sertifikasi</h2>
                 <div class="title-line"></div>
             </div>
             <div class="zone-stage-layout">
                 <div class="zone-card-column">
                     <div class="skills-grid">
-                        <div class="skill-card glass-card"><i class="fab fa-react skill-icon"></i><span>React</span></div>
-                        <div class="skill-card glass-card"><i class="fas fa-file-code skill-icon"></i><span>TypeScript</span></div>
-                        <div class="skill-card glass-card"><i class="fab fa-js skill-icon"></i><span>JavaScript</span></div>
-                        <div class="skill-card glass-card"><i class="fas fa-cube skill-icon"></i><span>Three.js</span></div>
-                        <div class="skill-card glass-card"><i class="fab fa-css3-alt skill-icon"></i><span>Tailwind CSS</span></div>
-                        <div class="skill-card glass-card"><i class="fas fa-database skill-icon"></i><span>Supabase</span></div>
-                        <div class="skill-card glass-card"><i class="fab fa-python skill-icon"></i><span>Python</span></div>
-                        <div class="skill-card glass-card"><i class="fas fa-code skill-icon"></i><span>C++</span></div>
-                        <div class="skill-card glass-card"><i class="fab fa-html5 skill-icon"></i><span>HTML5</span></div>
-                        <div class="skill-card glass-card"><i class="fab fa-figma skill-icon"></i><span>Figma</span></div>
-                        <div class="skill-card glass-card"><i class="fas fa-users skill-icon"></i><span>Manajemen</span></div>
-                        <div class="skill-card glass-card"><i class="fas fa-comments skill-icon"></i><span>Komunikasi</span></div>
+                        <div class="skill-card glass-card"><i class="devicon-react-original skill-icon"></i><span>React</span></div>
+                        <div class="skill-card glass-card"><i class="devicon-typescript-plain skill-icon"></i><span>TypeScript</span></div>
+                        <div class="skill-card glass-card"><i class="devicon-javascript-plain skill-icon"></i><span>JavaScript</span></div>
+                        <div class="skill-card glass-card"><i class="devicon-threejs-original skill-icon"></i><span>Three.js</span></div>
+                        <div class="skill-card glass-card"><i class="devicon-tailwindcss-original skill-icon"></i><span>Tailwind CSS</span></div>
+                        <div class="skill-card glass-card">
+                            <svg viewBox="0 0 24 24" class="skill-icon-svg" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                            <span>Zustand</span>
+                        </div>
+                        <div class="skill-card glass-card"><i class="devicon-python-plain skill-icon"></i><span>Python</span></div>
+                        <div class="skill-card glass-card"><i class="devicon-opencv-plain skill-icon"></i><span>OpenCV</span></div>
+                        <div class="skill-card glass-card"><i class="devicon-java-plain skill-icon"></i><span>Java</span></div>
+                        <div class="skill-card glass-card"><i class="devicon-cplusplus-plain skill-icon"></i><span>C / C++</span></div>
+                        <div class="skill-card glass-card"><i class="devicon-supabase-plain skill-icon"></i><span>SQL / Supabase</span></div>
+                        <div class="skill-card glass-card"><i class="devicon-git-plain skill-icon"></i><span>Git</span></div>
+                        <div class="skill-card glass-card"><i class="devicon-figma-plain skill-icon"></i><span>Figma</span></div>
+                    </div>
+                    <div class="cert-block">
+                        <div class="cert-header">
+                            <span>Sertifikasi Resmi & Kredensial</span>
+                        </div>
+                        <div class="cert-list">
+                            <div class="cert-item" role="button" tabindex="0"
+                                data-cert-title="Java (Basic)"
+                                data-cert-issuer="HackerRank"
+                                data-cert-id="FB15CBE996A3"
+                                data-cert-date="15 Sep 2026"
+                                data-cert-validity="Seumur Hidup"
+                                data-cert-recipient="Favian Junnanda Zahri"
+                                data-cert-img="assets/images/certificates/HackerRank_Java_Basic.png"
+                                data-cert-pdf="assets/docs/certificates/HackerRank_Java_Basic.pdf"
+                                data-cert-verify="https://www.hackerrank.com/certificates/fb15cbe996a3"
+                                data-cert-desc="Sertifikasi kompetensi resmi HackerRank yang memvalidasi penguasaan dasar pemrograman berorientasi objek dalam bahasa Java, kontrol alur, penanganan struktur data dasar, dan implementasi algoritma fundamental.">
+                                <div class="cert-thumb-box">
+                                    <img src="assets/images/certificates/HackerRank_Java_Basic_thumb.png" alt="HackerRank Java (Basic) Thumbnail" class="cert-thumb-img" loading="lazy">
+                                    <div class="cert-thumb-overlay">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="11" cy="11" r="8"></circle>
+                                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                            <line x1="11" y1="8" x2="11" y2="14"></line>
+                                            <line x1="8" y1="11" x2="14" y2="11"></line>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="cert-info">
+                                    <div class="cert-issuer-tag">HackerRank</div>
+                                    <div class="cert-title">Java (Basic) Certificate</div>
+                                    <div class="cert-meta-row">
+                                        <span class="cert-id">ID: FB15CBE996A3</span>
+                                        <span class="cert-dot">&bull;</span>
+                                        <span class="cert-date">15 Sep 2026</span>
+                                    </div>
+                                </div>
+                                <div class="cert-action">
+                                    <span class="cert-action-pill">LIHAT</span>
+                                </div>
+                            </div>
+
+                            <div class="cert-item" role="button" tabindex="0"
+                                data-cert-title="Memulai Pemrograman Dengan C"
+                                data-cert-issuer="Dicoding Indonesia"
+                                data-cert-id="L4PQWGJR4PO1"
+                                data-cert-date="15 September 2026"
+                                data-cert-validity="15 September 2029"
+                                data-cert-recipient="Favian Junnanda Zahri"
+                                data-cert-img="assets/images/certificates/Dicoding_C_Programming.png"
+                                data-cert-pdf="assets/docs/certificates/Dicoding_C_Programming.pdf"
+                                data-cert-verify="https://www.dicoding.com/certificates/L4PQWGJR4PO1"
+                                data-cert-desc="Sertifikat kompetensi kelulusan kurikulum standar industri (15 jam belajar) dari Dicoding Indonesia mencakup fundamental bahasa C: alokasi memori, tipe data primitif, kontrol alur, array, pointer dasar, dan modularitas subprogram fungsi.">
+                                <div class="cert-thumb-box">
+                                    <img src="assets/images/certificates/Dicoding_C_Programming_thumb.png" alt="Dicoding Memulai Pemrograman Dengan C Thumbnail" class="cert-thumb-img" loading="lazy">
+                                    <div class="cert-thumb-overlay">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="11" cy="11" r="8"></circle>
+                                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                            <line x1="11" y1="8" x2="11" y2="14"></line>
+                                            <line x1="8" y1="11" x2="14" y2="11"></line>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="cert-info">
+                                    <div class="cert-issuer-tag">Dicoding Indonesia</div>
+                                    <div class="cert-title">Memulai Pemrograman Dengan C</div>
+                                    <div class="cert-meta-row">
+                                        <span class="cert-id">ID: L4PQWGJR4PO1</span>
+                                        <span class="cert-dot">&bull;</span>
+                                        <span class="cert-date">15 Sep 2026</span>
+                                    </div>
+                                </div>
+                                <div class="cert-action">
+                                    <span class="cert-action-pill">LIHAT</span>
+                                </div>
+                            </div>
+
+                            <div class="cert-item" role="button" tabindex="0"
+                                data-cert-title="YouTube Music Rights Management Certification"
+                                data-cert-issuer="Google Skillshop"
+                                data-cert-id="479612420"
+                                data-cert-date="14 September 2026"
+                                data-cert-validity="14 Maret 2028 (Skor: 96%)"
+                                data-cert-recipient="Favian Junnanda Zahri"
+                                data-cert-img="assets/images/certificates/Google_YouTube_Music_Rights.png"
+                                data-cert-pdf="assets/docs/certificates/Google_YouTube_Music_Rights.pdf"
+                                data-cert-verify="assets/docs/certificates/Google_YouTube_Music_Rights.pdf"
+                                data-cert-desc="Sertifikasi resmi Google atas pemahaman operasional hak cipta musik digital, Content ID, kebijakan klaim monetisasi, kepemilikan aset audio, dan manajemen katalog rekaman musik di platform YouTube (Skor evaluasi kelulusan: 96%).">
+                                <div class="cert-thumb-box">
+                                    <img src="assets/images/certificates/Google_YouTube_Music_Rights_thumb.png" alt="Google YouTube Music Rights Management Thumbnail" class="cert-thumb-img" loading="lazy">
+                                    <div class="cert-thumb-overlay">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="11" cy="11" r="8"></circle>
+                                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                            <line x1="11" y1="8" x2="11" y2="14"></line>
+                                            <line x1="8" y1="11" x2="14" y2="11"></line>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="cert-info">
+                                    <div class="cert-issuer-tag">Google Skillshop</div>
+                                    <div class="cert-title">YouTube Music Rights Management</div>
+                                    <div class="cert-meta-row">
+                                        <span class="cert-id">ID: 479612420 &bull; Skor 96%</span>
+                                        <span class="cert-dot">&bull;</span>
+                                        <span class="cert-date">14 Sep 2026</span>
+                                    </div>
+                                </div>
+                                <div class="cert-action">
+                                    <span class="cert-action-pill">LIHAT</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="zone-3d-space" id="space-stage-skills">
-                    <!-- 3D Robot assistant floats here in the open space -->
+
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ====== ZONE 5: PROJECTS ====== -->
-    <section id="projects" class="zone" data-altitude="🌠 Galaxy Core">
+    <section id="projects" class="zone" data-altitude="Galaxy Core">
         <div class="zone-content">
             <div class="section-header">
-                <span class="zone-badge"><i class="fas fa-star"></i> ZONE 05</span>
+                <span class="zone-badge">
+                    <svg viewBox="0 0 48 48" class="zone-badge-svg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M38 10 C38 10 32 12 25 19 C20 24 17 29 17 31 L23 37 C25 37 30 34 35 29 C42 22 44 16 44 16 C44 16 41 13 38 10 Z" fill="currentColor" fill-opacity="0.15" />
+                        <path d="M33 15 C35 18 39 19 39 19" stroke-width="1.2" />
+                        <circle cx="29" cy="23" r="3.2" />
+                        <circle cx="29" cy="23" r="1.5" fill="currentColor" />
+                        <path d="M18 27 L11 28 L14 36 L19 33 Z" />
+                        <path d="M27 18 L28 11 L36 14 L33 19 Z" />
+                        <path d="M17 31 L15 33 L21 39 L23 37" />
+                        <path d="M16 35 L9 42 C12 39 12 37 13 35 Z" fill="currentColor" fill-opacity="0.3" />
+                        <path d="M18 37 C15 41 8 46 8 46 C8 46 13 39 17 36" stroke-width="1.4" />
+                        <path d="M19 35 C17 38 11 43 11 43" stroke-dasharray="1 2" opacity="0.7" />
+                    </svg>
+                    <span>ZONE 05</span>
+                </span>
                 <h2 class="section-title">Misi & Proyek</h2>
                 <div class="title-line"></div>
             </div>
 
-            <!-- PINNED: Space Academy -->
             <div class="project-mission pinned-mission glass-card">
                 <div class="mission-status">
-                    <span class="badge-pinned"><i class="fas fa-thumbtack"></i> Pinned Mission</span>
+                    <span class="badge-pinned">Pinned Mission</span>
                     <span class="badge-live"><span class="pulse-dot"></span> Live • Supabase Online</span>
                 </div>
                 <div class="mission-layout">
@@ -378,13 +555,12 @@
                 </div>
             </div>
 
-            <!-- Other Projects -->
             <div class="missions-grid">
-                <!-- 1. SiMonLomba -->
+
                 <div class="project-mission glass-card">
                     <div class="mission-status">
-                        <span class="badge-tag"><i class="fas fa-briefcase"></i> Proyek Magang BINUS</span>
-                        <span class="badge-ongoing"><i class="fas fa-spinner fa-spin"></i> On-Going</span>
+                        <span class="badge-tag">Proyek Magang BINUS</span>
+                        <span class="badge-ongoing"><span class="pulse-dot"></span> On-Going</span>
                     </div>
                     <div class="mission-gallery mini">
                         <img src="assets/images/projects/Sistem Monitoring 1.jpg" alt="SiMonLomba" class="gallery-img">
@@ -402,12 +578,11 @@
                         <p class="mission-desc">Platform web terpadu untuk monitoring, pendaftaran, dan pengelolaan partisipasi perlombaan mahasiswa serta arsip prestasi berbasis React. Menampilkan dashboard interaktif, verifikasi tim, timeline kompetisi, dan ekspor data ke Excel & PDF.</p>
                         <div class="mission-links">
                             <a href="https://github.com/FavianJZ/Sistem-Monitoring-Perlombaan-Mahasiswa" target="_blank" class="mission-btn secondary"><i class="fab fa-github"></i> Lihat Kode</a>
-                            <span class="mission-status-pill"><i class="fas fa-clock"></i> Masih Dalam Pengembangan</span>
+                            <span class="mission-status-pill">Masih Dalam Pengembangan</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- 2. SafeKota -->
                 <div class="project-mission glass-card">
                     <div class="mission-gallery mini">
                         <img src="assets/images/projects/HCI Project 1.png" alt="SafeKota" class="gallery-img">
@@ -429,7 +604,6 @@
                     </div>
                 </div>
 
-                <!-- 3. ZeroWaste -->
                 <div class="project-mission glass-card">
                     <div class="mission-gallery mini">
                         <img src="assets/images/projects/ZeroWaste 1.png" alt="ZeroWaste" class="gallery-img">
@@ -451,7 +625,6 @@
                     </div>
                 </div>
 
-                <!-- 4. Skizofrenia -->
                 <div class="project-mission glass-card">
                     <div class="mission-gallery mini">
                         <img src="assets/images/projects/Machine Learning 1.png" alt="Skizofrenia" class="gallery-img">
@@ -472,7 +645,6 @@
                     </div>
                 </div>
 
-                <!-- 5. Absolute Cinema -->
                 <div class="project-mission glass-card">
                     <div class="mission-gallery mini">
                         <img src="assets/images/projects/Absolute Cinema 1.png" alt="Absolute Cinema" class="gallery-img">
@@ -493,7 +665,6 @@
                     </div>
                 </div>
 
-                <!-- 6. Absence Alert -->
                 <div class="project-mission glass-card">
                     <div class="mission-gallery mini">
                         <img src="assets/images/projects/AI Project 1.jpg" alt="Absence Alert" class="gallery-img">
@@ -513,7 +684,6 @@
                     </div>
                 </div>
 
-                <!-- 7. BinusRent -->
                 <div class="project-mission glass-card">
                     <div class="mission-gallery mini">
                         <img src="assets/images/projects/Binus Rent 1.png" alt="BINUS Rent" class="gallery-img">
@@ -528,7 +698,7 @@
                         </div>
                         <p class="mission-desc">Kontribusi perancangan antarmuka (UI) dan pengalaman pengguna (UX) menggunakan Figma, berfokus pada flow halaman otentikasi login serta layout dasbor utama.</p>
                         <div class="mission-links">
-                            <a href="assets/docs/CV-BN125078680.pdf" target="_blank" class="mission-btn secondary"><i class="fas fa-file-alt"></i> Baca Selengkapnya</a>
+                            <a href="assets/docs/CV - Favian Junnanda Zahri (English).pdf" target="_blank" class="mission-btn secondary">Baca Selengkapnya di CV</a>
                         </div>
                     </div>
                 </div>
@@ -536,11 +706,25 @@
         </div>
     </section>
 
-    <!-- ====== ZONE 6: CONTACT ====== -->
-    <section id="contact" class="zone" data-altitude="✨ Galaxy Edge">
+    <section id="contact" class="zone" data-altitude="Galaxy Edge">
         <div class="zone-content">
             <div class="section-header">
-                <span class="zone-badge"><i class="fas fa-satellite"></i> ZONE 06</span>
+                <span class="zone-badge">
+                    <svg viewBox="0 0 48 48" class="zone-badge-svg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M13 39 L25 39" stroke-width="2" />
+                        <path d="M19 39 L19 35" stroke-width="1.8" />
+                        <path d="M15 35 L19 31 L23 35 Z" />
+                        <circle cx="19" cy="31" r="1.5" fill="currentColor" />
+                        <path d="M13 32 C12 25 21 16 28 15 C30 15 32 17 31 20 C27 27 18 36 15 36 C13.5 36 13 34 13 32 Z" fill="currentColor" fill-opacity="0.15" />
+                        <path d="M13 32 C17 21 26 15 30 18" stroke-width="1.4" opacity="0.6" />
+                        <line x1="21" y1="23" x2="27" y2="17" stroke-width="2" />
+                        <circle cx="28" cy="16" r="1.5" fill="currentColor" />
+                        <path d="M29 11 A 8 8 0 0 1 36 18" stroke-width="1.4" />
+                        <path d="M33 7 A 14 14 0 0 1 42 16" stroke-width="1.4" opacity="0.8" />
+                        <path d="M37 3 A 20 20 0 0 1 47 13" stroke-width="1.2" opacity="0.5" stroke-dasharray="2 2" />
+                    </svg>
+                    <span>ZONE 06</span>
+                </span>
                 <h2 class="section-title">Hubungi Saya</h2>
                 <div class="title-line"></div>
             </div>
@@ -567,35 +751,105 @@
                         <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                         <div class="contact-info"><span class="contact-label">Email</span><span class="contact-value">favian.zahri@binus.ac.id</span></div>
                     </a>
-                    <a href="http://www.linkedin.com/in/favian-junanda-zahri" target="_blank" class="contact-link glass-card">
+                    <a href="https://www.linkedin.com/in/favian-junanda-zahri" target="_blank" class="contact-link glass-card">
                         <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
-                        <div class="contact-info"><span class="contact-label">LinkedIn</span><span class="contact-value">Favian Junnanda Zahri</span></div>
+                        <div class="contact-info"><span class="contact-label">LinkedIn</span><span class="contact-value">linkedin.com/in/favian-junanda-zahri</span></div>
                     </a>
                     <a href="https://github.com/FavianJZ" target="_blank" class="contact-link glass-card">
                         <div class="contact-icon"><i class="fab fa-github"></i></div>
-                        <div class="contact-info"><span class="contact-label">GitHub</span><span class="contact-value">FavianJZ</span></div>
+                        <div class="contact-info"><span class="contact-label">GitHub</span><span class="contact-value">github.com/FavianJZ</span></div>
                     </a>
                 </div>
             </div>
             <footer class="space-footer">
-                <p>&copy; 2025 Favian Junnanda Zahri — Crafted with
-                    <svg viewBox="0 0 48 48" class="footer-rocket-svg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M38 10 C38 10 32 12 25 19 C20 24 17 29 17 31 L23 37 C25 37 30 34 35 29 C42 22 44 16 44 16 C44 16 41 13 38 10 Z" fill="currentColor" fill-opacity="0.2" />
-                        <path d="M33 15 C35 18 39 19 39 19" stroke-width="1.2" />
-                        <circle cx="29" cy="23" r="3.2" />
-                        <circle cx="29" cy="23" r="1.5" fill="currentColor" />
-                        <path d="M18 27 L11 28 L14 36 L19 33 Z" />
-                        <path d="M27 18 L28 11 L36 14 L33 19 Z" />
-                        <path d="M17 31 L15 33 L21 39 L23 37" />
-                        <path d="M16 35 L9 42 C12 39 12 37 13 35 Z" fill="currentColor" fill-opacity="0.3" />
-                        <path d="M18 37 C15 41 8 46 8 46 C8 46 13 39 17 36" stroke-width="1.4" />
-                        <path d="M19 35 C17 38 11 43 11 43" stroke-dasharray="1 2" opacity="0.7" />
-                    </svg>
-                    across the galaxy
-                </p>
+                <p>&copy; 2025 Favian Junnanda Zahri — Crafted across the galaxy</p>
             </footer>
         </div>
     </section>
+
+    <script>
+        if (window.location.protocol === 'file:') {
+            document.addEventListener('DOMContentLoaded', () => {
+                const loader = document.querySelector('.loader');
+                if (loader) {
+                    const notice = document.createElement('div');
+                    notice.style.cssText = 'margin-top:20px;padding:14px 18px;background:rgba(10,14,39,0.95);border:1px solid rgba(0,240,255,0.4);border-radius:10px;color:#e6f1ff;font-family:sans-serif;font-size:0.85rem;line-height:1.5;max-width:440px;box-shadow:0 8px 30px rgba(0,0,0,0.6);text-align:center;';
+                    notice.innerHTML = '<div style="color:#00f0ff;font-weight:700;margin-bottom:6px;font-size:0.95rem;">⚠️ Dibuka Lewat Protokol file://</div>' +
+                        'Browser modern memblokir ES Modules & file 3D jika dibuka via klik ganda (CORS).<br>' +
+                        'Silakan buka lewat local server yang sudah aktif:<br>' +
+                        '<a href="http://localhost:3000/" style="display:inline-block;margin-top:10px;padding:8px 18px;background:linear-gradient(135deg,#00f0ff,#0070f3);color:#050714;text-decoration:none;font-weight:700;border-radius:6px;font-size:0.9rem;">Buka http://localhost:3000/ &rarr;</a>';
+                    loader.appendChild(notice);
+                }
+            });
+        }
+    </script>
+
+    <!-- Certificate Preview Modal -->
+    <div id="cert-preview-modal" class="cert-modal" aria-hidden="true" role="dialog" aria-labelledby="cert-modal-title">
+        <div class="cert-modal-backdrop" id="cert-modal-backdrop"></div>
+        <div class="cert-modal-dialog">
+            <button type="button" class="cert-modal-close" id="cert-modal-close" aria-label="Tutup Pratinjau">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="cert-modal-body">
+                <div class="cert-modal-visual">
+                    <div class="cert-img-wrapper">
+                        <img id="cert-modal-img" src="" alt="Pratinjau Sertifikat" loading="lazy">
+                    </div>
+                </div>
+                <div class="cert-modal-meta">
+                    <div class="cert-modal-badge-row">
+                        <span class="cert-modal-tag" id="cert-modal-issuer">HackerRank</span>
+                        <span class="cert-modal-status-badge">
+                            <span class="verified-dot"></span> Terverifikasi
+                        </span>
+                    </div>
+                    <h3 class="cert-modal-title" id="cert-modal-title">Java (Basic)</h3>
+                    <p class="cert-modal-desc" id="cert-modal-desc"></p>
+                    <div class="cert-details-grid">
+                        <div class="cert-detail-item">
+                            <span class="detail-label">Penerima</span>
+                            <span class="detail-val" id="cert-modal-recipient">Favian Junnanda Zahri</span>
+                        </div>
+                        <div class="cert-detail-item">
+                            <span class="detail-label">Tanggal Terbit</span>
+                            <span class="detail-val" id="cert-modal-date">15 Sep 2026</span>
+                        </div>
+                        <div class="cert-detail-item">
+                            <span class="detail-label">Credential ID</span>
+                            <span class="detail-val mono" id="cert-modal-id">FB15CBE996A3</span>
+                        </div>
+                        <div class="cert-detail-item" id="cert-modal-extra-item">
+                            <span class="detail-label" id="cert-modal-extra-label">Masa Berlaku</span>
+                            <span class="detail-val" id="cert-modal-extra-val">Seumur Hidup</span>
+                        </div>
+                    </div>
+                    <div class="cert-modal-actions">
+                        <a id="cert-modal-pdf-btn" href="" target="_blank" class="btn-cert btn-cert-primary">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                            </svg>
+                            <span>Buka Dokumen PDF</span>
+                        </a>
+                        <a id="cert-modal-verify-btn" href="" target="_blank" class="btn-cert btn-cert-secondary">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                            <span>Verifikasi Kredensial</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script type="module" src="assets/js/script.js"></script>
 </body>

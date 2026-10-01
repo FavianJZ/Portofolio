@@ -1,11 +1,7 @@
-/* ============================================
-   SPACE ODYSSEY PORTFOLIO — Three.js + GLB Models
-   ============================================ */
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 
-// ─── Scene Setup ───
 const canvas = document.getElementById('three-canvas');
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -16,7 +12,6 @@ renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.2;
 camera.position.set(0, 0, 8);
 
-// ─── Lighting ───
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
 scene.add(ambientLight);
 
@@ -32,7 +27,6 @@ const blueLight = new THREE.PointLight(0x38bdf8, 0.8, 30);
 blueLight.position.set(4, -1, 5);
 scene.add(blueLight);
 
-// ─── Starfield Particles ───
 const starGeo = new THREE.BufferGeometry();
 const starCount = 2000;
 const starPositions = new Float32Array(starCount * 3);
@@ -57,7 +51,6 @@ const starMat = new THREE.PointsMaterial({
 const stars = new THREE.Points(starGeo, starMat);
 scene.add(stars);
 
-// ─── Draco & GLTF Loader Setup ───
 const dracoLoader = new DRACOLoader();
 dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.7/');
 dracoLoader.preload();
@@ -75,56 +68,45 @@ const loadingScreen = document.getElementById('loading-screen');
 const loaderFill = document.getElementById('loader-fill');
 const loaderPercent = document.getElementById('loader-percent');
 
-// Exact orientation for space shuttle:
-// - Pointy nose ("moncong") points diagonally UP-RIGHT into the stars (+X, +Y)
-// - Dorsal side (cockpit windows & vertical tail fin) faces camera / viewer (+Z)
-// - Belly (black heat shield tiles) faces backwards (-Z)
 const ROCKET_BASE_ROT = {
     x: 2.06,
     y: 2.41,
     z: -0.34
 };
 
-// Helper: Calculate exact Three.js world Y for any section based on its DOM position
 function getSectionWorldY(sectionId) {
     const el = document.getElementById(sectionId);
     if (!el) return 0;
     const max = totalHeight();
     if (max <= 0) return 0;
-    // Calculate scroll offset when section is centered on screen
+
     const elCenterScroll = el.offsetTop - (window.innerHeight - el.offsetHeight) / 2;
     const progress = Math.max(0, Math.min(1, elCenterScroll / max));
     return -progress * 70;
 }
 
 const modelList = [
-    // Hero Zone: Space Shuttle floating beside profile, nose pointing diagonally up-right
+
     { name: 'rocket', path: 'assets/models/rocket.glb', scale: 0.0030, pos: [4.4, 0.6, 1.4], rotX: ROCKET_BASE_ROT.x, rotY: ROCKET_BASE_ROT.y, rotZ: ROCKET_BASE_ROT.z },
     { name: 'planet1', path: 'assets/models/planet_1.glb', scale: 0.75, pos: [-8.0, 2.0, -14], rotY: 0, center: true },
 
-    // About Zone: 3D Astronaut character floating in the dedicated right-hand stage
     { name: 'spaceman', path: 'assets/models/spaceman.glb', scale: 0.80, pos: [3.8, -10.0, 1.4], rotY: 0.4, center: true },
     { name: 'planet2', path: 'assets/models/planet_2.glb', scale: 0.65, pos: [-8.5, -10.0, -14], rotY: 0, center: true },
 
-    // Experience Zone: 3D Flying Saucer hovering in the dedicated left-hand stage
     { name: 'ufo', path: 'assets/models/ufo.glb', scale: 0.45, pos: [-3.8, -20.0, 1.4], rotX: 0.35, rotY: 0, center: true },
     { name: 'planet3', path: 'assets/models/planet_3.glb', scale: 0.65, pos: [8.5, -20.0, -14], rotY: 0, center: true },
 
-    // Skills Zone: 3D Cyber Robot assistant floating in the dedicated right-hand stage
     { name: 'robot', path: 'assets/models/robot.glb', scale: 3.2, pos: [3.8, -35.0, 1.4], rotY: -0.3, center: true },
     { name: 'planet4', path: 'assets/models/planet_4.glb', scale: 0.07, pos: [-8.5, -35.0, -14], rotY: 0, center: true },
 
-    // Projects Zone: Space Academy Celestial World
     { name: 'planet5', path: 'assets/models/planet_5.glb', scale: 0.65, pos: [8.5, -50.0, -14], rotY: 0, center: true },
 
-    // Contact Zone: Frontier planet at the edge of the universe
     { name: 'planet6', path: 'assets/models/planet_6.glb', scale: 0.70, pos: [-8.0, -65.0, -14], rotY: 0, center: true },
 ];
 
 let loadedCount = 0;
 const totalModels = modelList.length;
 
-// Space Academy Rig Helper
 function createRigPart(root, ...boneNames) {
     for (const name of boneNames) {
         const obj = root.getObjectByName(name);
@@ -156,7 +138,6 @@ function loadModels() {
                 const model = gltf.scene;
                 let rootObj = model;
 
-                // 1. Embedded glTF Animations (UFO tractor beam, Robot articulation, Planet 4 core)
                 if (gltf.animations && gltf.animations.length > 0) {
                     const mixer = new THREE.AnimationMixer(model);
                     gltf.animations.forEach((clip) => {
@@ -167,7 +148,6 @@ function loadModels() {
                     mixers.push(mixer);
                 }
 
-                // 2. Space Academy Procedural Skeleton Rigging for Spaceman
                 if (item.name === 'spaceman') {
                     spacemanRig = {
                         hips: createRigPart(model, 'Hips'),
@@ -180,7 +160,6 @@ function loadModels() {
                     };
                 }
 
-                // 3. Space Academy Procedural Articulation for Robot
                 if (item.name === 'robot') {
                     robotRig = {
                         mouth: model.getObjectByName('Mouth'),
@@ -204,41 +183,35 @@ function loadModels() {
                 if (item.rotY) rootObj.rotation.y = item.rotY;
                 if (item.rotZ !== undefined) rootObj.rotation.z = item.rotZ;
 
-                // Enable shadows/better rendering & UFO custom color
                 model.traverse((child) => {
                     if (child.isMesh) {
                         child.castShadow = true;
                         child.receiveShadow = true;
 
-                        // UFO custom recoloring (make body sleek silver/cyan so it pops out and doesn't blend into dark galaxy)
                         if (item.name === 'ufo') {
                             const origMat = Array.isArray(child.material) ? child.material[0] : child.material;
                             const mat = origMat ? origMat.clone() : new THREE.MeshStandardMaterial();
-                            mat.map = null; // Detach dark texture
+                            mat.map = null;
 
                             if (child.name === 'Object_7' || child.name === 'Object_8' || origMat?.name === 'PaletteMaterial001') {
-                                // Saucer Hull: Sleek metallic silver/platinum with subtle cyan reflection
                                 mat.color.set(0xccdcf0);
                                 mat.metalness = 0.85;
                                 mat.roughness = 0.25;
                                 mat.emissive.set(0x102b48);
                                 mat.emissiveIntensity = 0.35;
                             } else if (child.name === 'Object_9' || origMat?.name === 'PaletteMaterial002') {
-                                // Cockpit Dome: Luminous cyber-cyan energy shield
                                 mat.color.set(0x00f5ff);
                                 mat.metalness = 0.1;
                                 mat.roughness = 0.15;
                                 mat.emissive.set(0x00d8ff);
                                 mat.emissiveIntensity = 0.85;
                             } else if (child.name === 'Object_10' || origMat?.name === 'PaletteMaterial003') {
-                                // Tractor Beam Rings: Luminous electric cyan pulse
                                 mat.color.set(0x70d8ff);
                                 mat.metalness = 0.2;
                                 mat.roughness = 0.3;
                                 mat.emissive.set(0x0099cc);
                                 mat.emissiveIntensity = 0.9;
                             } else if (child.name === 'Object_11' || origMat?.name === 'PaletteMaterial004') {
-                                // Perimeter Beacon Lights: Vibrant neon cyan dots
                                 mat.color.set(0x00ffff);
                                 mat.emissive.set(0x00ffff);
                                 mat.emissiveIntensity = 2.0;
@@ -266,7 +239,6 @@ function loadModels() {
 
                 resolve();
             }, undefined, () => {
-                // On error, still count it
                 loadedCount++;
                 const pct = Math.round((loadedCount / totalModels) * 100);
                 if (loaderFill) loaderFill.style.width = pct + '%';
@@ -277,7 +249,6 @@ function loadModels() {
     }));
 }
 
-// ─── Space Academy Procedural Animations ───
 function updateSpacemanProceduralAnimation(time, delta) {
     if (!spacemanRig || !spacemanRig.head) return;
     const response = 1 - Math.exp(-delta * 9);
@@ -345,7 +316,6 @@ function updateRobotProceduralAnimation(time, delta) {
     }
 }
 
-// ─── Scroll-Driven Camera & Parallax ───
 let scrollProgress = 0;
 const totalHeight = () => document.body.scrollHeight - window.innerHeight;
 
@@ -355,20 +325,16 @@ window.addEventListener('scroll', () => {
 });
 
 function updateSceneOnScroll(time, delta) {
-    // Camera descends through space as user scrolls
     camera.position.y = -scrollProgress * 70;
     camera.position.z = 8 + scrollProgress * 2;
 
-    // Gentle camera sway
     camera.position.x = Math.sin(time * 0.2) * 0.3;
     camera.rotation.z = Math.sin(time * 0.15) * 0.01;
 
-    // Stars parallax — slower
     if (stars) {
         stars.position.y = -scrollProgress * 35;
     }
 
-    // Dynamic section centers in Three.js world space
     const heroY = getSectionWorldY('hero');
     const aboutY = getSectionWorldY('about');
     const expY = getSectionWorldY('experience');
@@ -376,7 +342,6 @@ function updateSceneOnScroll(time, delta) {
     const projY = getSectionWorldY('projects');
     const contactY = getSectionWorldY('contact');
 
-    // Rotate/animate individual models per section (always in sync with their section)
     if (models.rocket) {
         models.rocket.position.y = heroY + 0.6 + Math.sin(time * 0.8) * 0.15;
         models.rocket.position.x = 4.4 + Math.sin(time * 0.5) * 0.08;
@@ -439,53 +404,44 @@ function updateSceneOnScroll(time, delta) {
         models.planet6.position.z = -14;
     }
 
-    // Rotate planets slowly in background
     ['planet1', 'planet2', 'planet3', 'planet4', 'planet5', 'planet6'].forEach((name, i) => {
         if (models[name]) {
             models[name].rotation.y += 0.003 + i * 0.001;
         }
     });
 
-    // Dynamic lighting based on scroll
     const hue = scrollProgress * 0.2;
     cyanLight.color.setHSL(0.52 + hue, 1, 0.5);
     cyanLight.position.y = -scrollProgress * 70 + 2;
     blueLight.position.y = -scrollProgress * 70 - 2;
 }
 
-// ─── Animation Loop ───
 function animate() {
     requestAnimationFrame(animate);
 
     const delta = Math.min(clock.getDelta(), 0.1);
     const time = clock.getElapsedTime();
 
-    // 1. Update GLTF AnimationMixers (UFO tractor beam/rings, Robot articulation, Planet 4 core)
     for (let i = 0; i < mixers.length; i++) {
         mixers[i].update(delta);
     }
 
-    // 2. Update Space Academy procedural bone / mesh animations
     updateSpacemanProceduralAnimation(time, delta);
     updateRobotProceduralAnimation(time, delta);
 
-    // 3. Update scroll-driven and hovering motions
     updateSceneOnScroll(time, delta);
 
-    // 4. Twinkle stars
     starMat.opacity = 0.6 + 0.2 * Math.sin(time);
 
     renderer.render(scene, camera);
 }
 
-// ─── Window Resize ───
 window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
-// ─── Initialize ───
 loadModels().then(() => {
     setTimeout(() => {
         if (loadingScreen) loadingScreen.classList.add('hidden');
@@ -494,14 +450,17 @@ loadModels().then(() => {
     animate();
 });
 
+// Fallback safety: pastikan loading screen selalu hilang dan animasi berjalan jika ada keterlambatan jaringan
+setTimeout(() => {
+    if (loadingScreen && loadingScreen.style.display !== 'none') {
+        loadingScreen.classList.add('hidden');
+        setTimeout(() => { if (loadingScreen) loadingScreen.style.display = 'none'; }, 800);
+        animate();
+    }
+}, 4500);
 
-// ============================================
-// NON-THREE.JS UI CODE
-// ============================================
-
-// ─── Typing Effect ───
 (function initTyping() {
-    const roles = ['Web Developer', 'Computer Science Student', 'AI/ML Enthusiast', 'UI/UX Designer', '3D Web Developer', 'Space Explorer 🚀'];
+    const roles = ['Web Developer', 'Computer Science Student', 'AI/ML Enthusiast', 'UI/UX Designer', '3D Web Developer', 'Space Explorer'];
     const el = document.getElementById('typing-role');
     if (!el) return;
     let ri = 0, ci = 0, del = false, speed = 100;
@@ -516,7 +475,6 @@ loadModels().then(() => {
     type();
 })();
 
-// ─── Scroll Observers & HUD Navigation ───
 (function initObservers() {
     const zones = document.querySelectorAll('.zone');
     const navNodes = document.querySelectorAll('.nav-node');
@@ -532,7 +490,6 @@ loadModels().then(() => {
         });
     }
 
-    // Reveal content
     const revealObs = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -546,7 +503,6 @@ loadModels().then(() => {
     }, { threshold: 0.12 });
     zones.forEach(z => revealObs.observe(z));
 
-    // Active section tracking
     const trackObs = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -556,11 +512,9 @@ loadModels().then(() => {
     }, { threshold: 0.35 });
     zones.forEach(z => trackObs.observe(z));
 
-    // Initial active state
     setTimeout(() => updateNavActive('hero'), 300);
 })();
 
-// ─── Smooth Nav Scroll ───
 document.querySelectorAll('.nav-node').forEach(link => {
     link.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
@@ -571,7 +525,6 @@ document.querySelectorAll('.nav-node').forEach(link => {
     });
 });
 
-// ─── Pinned Project Gallery ───
 window.switchPinnedImg = function (thumbEl) {
     const mainImg = document.getElementById('pinned-main-img');
     const thumbs = document.querySelectorAll('.gallery-thumbs .thumb');
@@ -583,7 +536,6 @@ window.switchPinnedImg = function (thumbEl) {
     }
 };
 
-// Auto-rotate
 (function () {
     const thumbs = document.querySelectorAll('.gallery-thumbs .thumb');
     if (!thumbs.length) return;
@@ -597,7 +549,6 @@ window.switchPinnedImg = function (thumbEl) {
     }
 })();
 
-// ─── Mouse Glow on Glass Cards ───
 document.addEventListener('mousemove', (e) => {
     document.querySelectorAll('.glass-card').forEach(card => {
         const r = card.getBoundingClientRect();
@@ -610,6 +561,104 @@ document.addEventListener('mousemove', (e) => {
     });
 });
 
-// ─── Console ───
-console.log('%c🚀 SPACE ODYSSEY PORTFOLIO\n%cPowered by Three.js + Your Space Academy 3D Models',
-    'color:#00f0ff;font-size:18px;font-weight:bold;', 'color:#b44dff;font-size:12px;');
+// ==================== CERTIFICATE PREVIEW MODAL ====================
+function initCertPreview() {
+    const modal = document.getElementById('cert-preview-modal');
+    if (!modal) return;
+
+    const modalImg = document.getElementById('cert-modal-img');
+    const modalIssuer = document.getElementById('cert-modal-issuer');
+    const modalTitle = document.getElementById('cert-modal-title');
+    const modalDesc = document.getElementById('cert-modal-desc');
+    const modalRecipient = document.getElementById('cert-modal-recipient');
+    const modalDate = document.getElementById('cert-modal-date');
+    const modalId = document.getElementById('cert-modal-id');
+    const modalExtraVal = document.getElementById('cert-modal-extra-val');
+    const modalPdfBtn = document.getElementById('cert-modal-pdf-btn');
+    const modalVerifyBtn = document.getElementById('cert-modal-verify-btn');
+    const closeBtn = document.getElementById('cert-modal-close');
+    const backdrop = document.getElementById('cert-modal-backdrop');
+
+    function openModal(item) {
+        const title = item.dataset.certTitle || '';
+        const issuer = item.dataset.certIssuer || '';
+        const id = item.dataset.certId || '';
+        const date = item.dataset.certDate || '';
+        const validity = item.dataset.certValidity || 'Seumur Hidup';
+        const recipient = item.dataset.certRecipient || 'Favian Junnanda Zahri';
+        const img = item.dataset.certImg || '';
+        const pdf = item.dataset.certPdf || '';
+        const verify = item.dataset.certVerify || pdf;
+        const desc = item.dataset.certDesc || '';
+
+        if (modalImg) {
+            modalImg.src = img;
+            modalImg.alt = `Sertifikat ${title} - ${issuer}`;
+        }
+        if (modalIssuer) modalIssuer.textContent = issuer;
+        if (modalTitle) modalTitle.textContent = title;
+        if (modalDesc) modalDesc.textContent = desc;
+        if (modalRecipient) modalRecipient.textContent = recipient;
+        if (modalDate) modalDate.textContent = date;
+        if (modalId) modalId.textContent = id;
+        if (modalExtraVal) modalExtraVal.textContent = validity;
+        if (modalPdfBtn) modalPdfBtn.href = pdf;
+        if (modalVerifyBtn) {
+            modalVerifyBtn.href = verify;
+            if (verify.endsWith('.pdf')) {
+                modalVerifyBtn.innerHTML = `
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    <span>Unduh PDF</span>
+                `;
+                modalVerifyBtn.setAttribute('download', '');
+            } else {
+                modalVerifyBtn.innerHTML = `
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    <span>Verifikasi Kredensial</span>
+                `;
+                modalVerifyBtn.removeAttribute('download');
+            }
+        }
+
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.cert-item').forEach(item => {
+        item.addEventListener('click', () => openModal(item));
+        item.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openModal(item);
+            }
+        });
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (backdrop) backdrop.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+}
+
+initCertPreview();
+
+console.log('SPACE ODYSSEY PORTFOLIO\nPowered by Three.js + Space Academy 3D Models');
