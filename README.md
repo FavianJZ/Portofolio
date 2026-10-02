@@ -64,32 +64,6 @@ Mahasiswa **Sarjana Ilmu Komputer (Software Engineering)** di **Universitas Bina
 
 ## 📂 Struktur Proyek
 
-```plaintext
-Portofolio/
-├── assets/
-│   ├── css/
-│   │   └── style.css                                  # Stylesheet tema modern dark-mode & glassmorphism
-│   ├── js/
-│   │   └── script.js                                  # Interaktivitas, slider gambar, Three.js 3D models
-│   ├── docs/
-│   │   ├── CV - Favian Junnanda Zahri (English).pdf    # Curriculum Vitae (English)
-│   │   └── CV - Favian Junnanda Zahri (Indonesia).pdf  # Curriculum Vitae (Bahasa Indonesia)
-│   └── images/
-│       ├── profile/
-│       │   └── PhotoFormal.jpg                        # Foto profil
-│       └── projects/                                  # Seluruh aset tangkapan layar proyek
-│           ├── Space Academy 1..5.png
-│           ├── Sistem Monitoring 1.jpg
-│           ├── HCI Project 1..6.png
-│           ├── ZeroWaste 1..6.png
-│           ├── Machine Learning 1..3.png
-│           ├── Absolute Cinema 1..6.png
-│           ├── AI Project 1..5.jpg
-│           └── Binus Rent 1..2.png
-├── index.html                                         # Halaman utama portofolio
-└── README.md                                          # Dokumentasi repositori
-```
-
 ---
 
 ## 📬 Kontak
